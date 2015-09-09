@@ -10,7 +10,7 @@ For any file/folder F.symlink in this folder or its subdirectories, a symlink
 
 ## ~/.gitprivate file
 To avoid exposing git usernames, emails, etc., the .gitconfig within this
-repository includes a ~/.gitprivate file. This should contain git's [user]
+repository [include]s a ~/.gitprivate file. This should contain git's [user]
 configuration and anything else sensitive, and is not in this repository.
 
 ## zsh configuration
