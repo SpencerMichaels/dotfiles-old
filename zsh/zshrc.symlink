@@ -1,0 +1,35 @@
+# Online help for zsh
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
+
+export ZSH=$HOME/.dotfiles
+#export ZSH=$HOME/.dotfiles
+
+# Load zsh configuration files ------------------------------------------------
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
+
+# Load path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+    source $file
+done
+
+# Load files, excluding path and completion
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+    source $file
+done
+
+# Initialize autocomplete
+autoload -U compinit
+compinit
+
+# Load completion files
+for file in ${(M)config_files:#*/completion.zsh}
+do
+    source $file
+done
+
+unset config_files
