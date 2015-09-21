@@ -9,3 +9,5 @@
 	ui = auto
 [include]
     path = ~/.gitprivate
+[credential]
+	helper = store

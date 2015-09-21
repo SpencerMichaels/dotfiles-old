@@ -9,5 +9,3 @@ ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=false
 ZSH_TMUX_AUTOQUIT=true
 ZSH_TMUX_FIXTERM=true
-
-source $ZSH/oh-my-zsh.sh
