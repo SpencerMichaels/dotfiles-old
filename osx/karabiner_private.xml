@@ -55,7 +55,7 @@
     </vkchangeinputsourcedef>
     <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_TRADITIONAL</name>
-        <inputsourceid_equal>com.apple.inputmethod.TCIM.pinyin</inputsourceid_equal>
+        <inputsourceid_equal>com.apple.inputmethod.TCIM.Pinyin</inputsourceid_equal>
     </vkchangeinputsourcedef>
     <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED</name>
@@ -80,14 +80,22 @@
 
         <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
             KeyCode::VK_CHANGE_INPUTSOURCE_RUSSIAN, KeyCode::VK_WAIT_10MS,
-            KeyCode::SPACE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L,</autogen>
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
 
         <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
             KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED, KeyCode::VK_WAIT_10MS,
-            KeyCode::SPACE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L,</autogen>
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
 
-        <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_US</autogen>
+        <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_TRADITIONAL, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
 
-        <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_RUSSIAN</autogen>
+        <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_US, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
     </item>
 </root>

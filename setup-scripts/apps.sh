@@ -1,3 +1,8 @@
+#!/bin/bash
+# Configures defaults for applications. Assumes, of course, that they are
+# installed.
+set -e
+
 # Set iTerm2 configuration location
 defaults read com.googlecode.iterm2 PrefsCustomFolder "~/.dotfiles/osx/iterm2"
 

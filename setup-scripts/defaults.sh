@@ -1,6 +1,10 @@
 #!/bin/bash
+# Sets decent defaults for OSX
 
-echo "Expand General, Open with, and Sharing & Permissions panes in Finder info window."
+echo "- Enable tab controls for all dialogs."
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+echo "- Expand General, Open with, and Sharing & Permissions panes in Finder info window."
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	General -bool true \
 	OpenWith -bool true \

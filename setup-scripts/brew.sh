@@ -1,6 +1,6 @@
 #!/bin/sh
-#
-# Homebrew installer
+# Installs homebrew and a few packages needed for basic work
+
 set -e
 
 # Check if Homebrew exists
@@ -19,6 +19,8 @@ BREW_TAPS=(
 BREW_PACKAGES=(
     ack
     autojump
+    "caskroom/cask/brew-cask"
+    duti
     grc
     "macvim --with-override-system-vim"
     "mpd --with-flac --with-libmms"
@@ -39,22 +41,19 @@ CASK_PACKAGES=(
 
 echo "- Tapping repositories."
 for ((i = 0; i < ${#BREW_TAPS[@]}; i++)); do
-    echo "  - Tapping ${BREW_TAPS[i]}."
+    echo "  - ${BREW_TAPS[i]}"
     brew tap ${BREW_TAPS[i]}
 done
 
 echo "- Installing packages."
 for ((i = 0; i < ${#BREW_PACKAGES[@]}; i++)); do
-    echo "  - Installing ${BREW_PACKAGES[i]}."
+    echo "  - ${BREW_PACKAGES[i]}"
     brew install ${BREW_PACKAGES[i]}
 done
 
-echo "- Installing cask."
-brew install caskroom/cask/brew-cask
-
 echo "- Installing cask apps."
 for ((i = 0; i < ${#CASK_PACKAGES[@]}; i++)); do
-    echo "  - Installing ${CASK_PACKAGES[i]}."
+    echo "  - ${CASK_PACKAGES[i]}"
     brew cask install ${CASK_PACKAGES[i]}
 done
 

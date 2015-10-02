@@ -1,22 +1,37 @@
 #!/bin/bash
+# Sets up Karabiner/Seil and changes the function of a few modifier keys.
+#   - Caps lock to esc/ctrl
+#   - Ctrl to hyper (shift+ctrl+cmd+alt)
 set -e
 
 echo "- Setting Seil to force capslock to send F19."
 /Applications/Seil.app/Contents/Library/bin/seil set keycode_capslock 80
 
-echo "- Linking Karabiner private.xml"
-# Create the directory manually in case Karabiner hasn't done so already
+echo "- Linking Karabiner private.xml."
 if [ -f $HOME/Library/Application\ Support/Karabiner/private.xml ]; then
+    # Delete the file if it exists already -- Karabiner may have created it
+    # automatically
     rm $HOME/Library/Application\ Support/Karabiner/private.xml
 else
+    # Create the directory manually in case Karabiner hasn't done so already
     mkdir -p ~/Library/Application\ Support/Karabiner/
 fi
 mkdir -p ~/Library/Application\ Support/Karabiner/
 ln -s -h ${DOTFILES_OSX_DIR}/karabiner_private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
 
-echo " - Applying Karabiner configuration."
+echo "- Applying Karabiner configuration."
 /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
 ${DOTFILES_OSX_DIR}/karabiner_config.sh
+
+echo "- Adding F18 shortcut to switch input methods."
+# This array of integers, added to the plist below, sets the "switch to next
+# input method" hotkey to to F18, which Karabiner's config relies on
+HOTKEYS_PLIST="$HOME/Library/Preferences/com.apple.symbolichotkeys.plist"
+/usr/libexec/PlistBuddy -c "delete :AppleSymbolicHotKeys:61:value:parameters" "$HOTKEYS_PLIST"
+/usr/libexec/PlistBuddy -c "add :AppleSymbolicHotKeys:61:value:parameters array" "$HOTKEYS_PLIST"
+/usr/libexec/PlistBuddy -c "add :AppleSymbolicHotKeys:61:value:parameters: integer 65535" "$HOTKEYS_PLIST"
+/usr/libexec/PlistBuddy -c "add :AppleSymbolicHotKeys:61:value:parameters: integer 79" "$HOTKEYS_PLIST"
+/usr/libexec/PlistBuddy -c "add :AppleSymbolicHotKeys:61:value:parameters: integer 0" "$HOTKEYS_PLIST"
 
 echo "- Changing modifier key behavior."
 echo "  - Retrieving internal keyboard IDs."
