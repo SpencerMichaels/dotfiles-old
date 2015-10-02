@@ -499,7 +499,6 @@ progressbar_look = "─⊙·"
 #progressbar_elapsed_color = "black"
 
 playlist_display_mode = "columns"
-user_interface = "alternative"
 visualizer_in_stereo = "yes"
 visualizer_look = "▌▌"
 locked_screen_width_part = "30"

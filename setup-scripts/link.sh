@@ -1,6 +1,4 @@
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-FILES=$(find $DIR -maxdepth 2 -name '*.symlink' )
+FILES=$(find $DOTFILES_ROOT_DIR -maxdepth 2 -name '*.symlink' )
 
 COUNT=0
 for FILE in $FILES; do
@@ -15,4 +13,4 @@ for FILE in $FILES; do
     fi
 done
 
-echo "\nLinked $COUNT files."
+echo "Linked $COUNT files."
