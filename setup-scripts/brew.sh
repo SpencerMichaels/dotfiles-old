@@ -9,14 +9,15 @@ then
 echo "- Installing Homebrew."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
-    echo '- Homebrew is already installed, continuing to packages.'
+    echo '- Homebrew is already installed, continuing to package installation.'
 fi
 
-# Packages/repos to isntall/tap
+# Packages/repos to install/tap
 BREW_TAPS=(
     caskroom/versions   # For iterm2-beta and other such alternate app versions
 )
 BREW_PACKAGES=(
+    autojump
     grc
     "macvim --with-override-system-vim"
     "mpd --with-flac --with-libmms"
@@ -55,6 +56,9 @@ for ((i = 0; i < ${#CASK_PACKAGES[@]}; i++)); do
     echo "  - Installing ${CASK_PACKAGES[i]}."
     brew cask install ${CASK_PACKAGES[i]}
 done
+
+echo "- Linking cask apps."
+brew linkapps
 
 echo "- Cleaning up."
 brew cleanup

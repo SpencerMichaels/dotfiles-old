@@ -4,13 +4,14 @@ set -e
 echo "- Setting Seil to force capslock to send F19."
 /Applications/Seil.app/Contents/Library/bin/seil set keycode_capslock 80
 
-echo "- Linking Karabiner configuration."
+echo "- Linking Karabiner private.xml"
 # Create the directory manually in case Karabiner hasn't done so already
 mkdir -p ~/Library/Application\ Support/Karabiner/
-ln -s -h "${DOTFILES_OSX_DIR}"/karabiner_private.xml ~/Library/Application\ Support/Karabiner/private.xml
+ln -s -h ${DOTFILES_OSX_DIR}/karabiner_private.xml ~/Library/Application\ Support/Karabiner/private.xml
 
-echo "    - Reloading Karabiner configuration."
+echo " - Applying Karabiner configuration."
 /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
+${DOTFILES_OSX_DIR}/karabiner_config.sh
 
 echo "- Changing modifier key behavior."
 echo "  - Retrieving internal keyboard IDs."

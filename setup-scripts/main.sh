@@ -20,3 +20,5 @@ echo "4. Modifying keymap..."
 
 echo "5. Setting sane defaults for OSX..."
 /bin/bash $SETUP_SCRIPTS_DIR/osx/defaults.sh
+
+exit 0

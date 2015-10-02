@@ -54,16 +54,16 @@
         <inputsourceid_equal>com.sogou.inputmethod.sogou.pinyin</inputsourceid_equal>
     </vkchangeinputsourcedef>
     <vkchangeinputsourcedef>
-        <name>KeyCode::VK_CHANGE_INPUTSOURCE_US_EXTENDED</name>
-        <inputsourceid_equal>com.apple.keylayout.USExtended</inputsourceid_equal>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_TRADITIONAL</name>
+        <inputsourceid_equal>com.apple.inputmethod.TCIM.pinyin</inputsourceid_equal>
     </vkchangeinputsourcedef>
     <vkchangeinputsourcedef>
-        <name>KeyCode::VK_CHANGE_INPUTSOURCE_GREEK</name>
-        <inputsourceid_equal>com.apple.keylayout.Greek</inputsourceid_equal>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED</name>
+        <inputsourceid_equal>com.apple.inputmethod.SCIM.ITABC</inputsourceid_equal>
     </vkchangeinputsourcedef>
     <vkchangeinputsourcedef>
-        <name>KeyCode::VK_CHANGE_INPUTSOURCE_ARABIC</name>
-        <inputsourceid_equal>com.apple.keylayout.Arabic</inputsourceid_equal>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_US</name>
+        <inputsourceid_equal>com.apple.keylayout.US</inputsourceid_equal>
     </vkchangeinputsourcedef>
     <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_RUSSIAN</name>
@@ -72,23 +72,22 @@
 
     <item>
         <name>Input switcher shortcuts</name>
-        <appendix>Hyper + comma: Greek</appendix>
-        <appendix>Hyper + period: Sogou (Chinese)</appendix>
+        <appendix>Hyper + comma: Traditional Chinese</appendix>
+        <appendix>Hyper + period: Simplified Chinese</appendix>
         <appendix>Hyper + slash: US Extended</appendix>
-        <appendix>Hyper + semicolon: Arabic</appendix>
         <appendix>Hyper + quote: Russian</appendix>
-        <identifier>private.us_chinese_input</identifier>
+        <identifier>private.multilanguage_input</identifier>
 
         <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-            KeyCode::VK_CHANGE_INPUTSOURCE_US_EXTENDED, KeyCode::VK_WAIT_10MS,
+            KeyCode::VK_CHANGE_INPUTSOURCE_RUSSIAN, KeyCode::VK_WAIT_10MS,
             KeyCode::SPACE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L,</autogen>
 
-        <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_GREEK</autogen>
+        <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED, KeyCode::VK_WAIT_10MS,
+            KeyCode::SPACE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L,</autogen>
 
-        <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_US_EXTENDED</autogen>
+        <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_US</autogen>
 
-        <autogen>__KeyToKey__ KeyCode::SEMICOLON, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_ARABIC</autogen>
-
-        <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_RUSSIAN</autogen>
+        <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_RUSSIAN</autogen>
     </item>
 </root>
