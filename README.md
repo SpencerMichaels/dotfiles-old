@@ -8,4 +8,4 @@ repository [include]s a ~/.gitprivate file. This should contain git's [user]
 configuration and anything else sensitive, and is not in this repository.
 
 ## Credits
-ZSH sourcing methods based on those in (holman/dotfiles)[https://github.com/holman/dotfiles].
+ZSH sourcing methods based on those in [holman/dotfiles](https://github.com/holman/dotfiles).
