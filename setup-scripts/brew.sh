@@ -17,6 +17,7 @@ BREW_TAPS=(
     caskroom/versions   # For iterm2-beta and other such alternate app versions
 )
 BREW_PACKAGES=(
+    ack
     autojump
     grc
     "macvim --with-override-system-vim"

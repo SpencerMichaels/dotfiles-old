@@ -6,8 +6,13 @@ echo "- Setting Seil to force capslock to send F19."
 
 echo "- Linking Karabiner private.xml"
 # Create the directory manually in case Karabiner hasn't done so already
+if [ -f $HOME/Library/Application\ Support/Karabiner/private.xml ]; then
+    rm $HOME/Library/Application\ Support/Karabiner/private.xml
+else
+    mkdir -p ~/Library/Application\ Support/Karabiner/
+fi
 mkdir -p ~/Library/Application\ Support/Karabiner/
-ln -s -h ${DOTFILES_OSX_DIR}/karabiner_private.xml ~/Library/Application\ Support/Karabiner/private.xml
+ln -s -h ${DOTFILES_OSX_DIR}/karabiner_private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
 
 echo " - Applying Karabiner configuration."
 /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml

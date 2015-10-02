@@ -5,20 +5,20 @@ echo "1. Linking dotfiles..."
 $SETUP_SCRIPTS_DIR/link.sh
 
 echo "2. Setting up Homebrew..."
-/bin/bash $SETUP_SCRIPTS_DIR/brew/install.sh
+/bin/bash $SETUP_SCRIPTS_DIR/brew.sh
 
-echo "3. Changing shell to zsh..."
+echo "3. Changing shell to zsh (needs root password)..."
 if [ -f /usr/local/bin/zsh ]; then
-    chsh -s /usr/local/bin/zsh
+    sudo chsh -s /usr/local/bin/zsh `whoami`
 else
     echo "/usr/local/bin/zsh not found!"
     exit 1
 fi
 
 echo "4. Modifying keymap..."
-/bin/bash $SETUP_SCRIPTS_DIR/osx/keymap.sh
+/bin/bash $SETUP_SCRIPTS_DIR/keymap.sh
 
 echo "5. Setting sane defaults for OSX..."
-/bin/bash $SETUP_SCRIPTS_DIR/osx/defaults.sh
+/bin/bash $SETUP_SCRIPTS_DIR/defaults.sh
 
 exit 0
