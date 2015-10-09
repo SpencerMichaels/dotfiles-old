@@ -37,6 +37,7 @@ CASK_PACKAGES=(
     karabiner
     seil
     spectacle
+    transmission
 )
 
 echo "- Tapping repositories."

@@ -4,6 +4,18 @@
 #   - Ctrl to hyper (shift+ctrl+cmd+alt)
 set -e
 
+
+# Check that the required paths are set up first.
+if [ -z "$DOTFILES_ROOT_DIR" ] && \
+   [ -z "$SETUP_SCRIPTS_DIR" ] && \
+   [ -z "$DOTFILES_OSX_DIR" ]
+then
+    echo "Paths not set up. Run this script via setup.sh in the root dotfiles"
+    echo "folder or source paths.sh manually."
+    exit 1
+fi
+
+
 echo "- Setting Seil to force capslock to send F19."
 /Applications/Seil.app/Contents/Library/bin/seil set keycode_capslock 80
 

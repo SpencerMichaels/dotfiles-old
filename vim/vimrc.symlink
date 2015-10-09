@@ -251,7 +251,7 @@
 " {{{ VIMTEX
     " Also use 'defaults write TeXShop BringPdfFrontOnAutomaticUpdate NO'
     let g:vimtex_view_method = 'general'
-    let g:vimtex_view_general_viewer = '/Applications/TeXShop.app/Contents/MacOS/TeXShop'
+    let g:vimtex_view_general_viewer = '/Applications/TeX/TeXShop.app/Contents/MacOS/TeXShop'
     let g:vimtex_latexmk_continuous = 1
     let g:vimtex_quickfix_ignore_all_warnings = 1
 

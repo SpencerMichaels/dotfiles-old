@@ -1,6 +1,18 @@
 #!/bin/bash
-# Runs all the other setup scripts in this folder. 
+# Runs all the other setup scripts in this folder.
 set -e
+
+
+# Check that the required paths are set up first.
+if [ -z "$DOTFILES_ROOT_DIR" ] && \
+   [ -z "$SETUP_SCRIPTS_DIR" ] && \
+   [ -z "$DOTFILES_OSX_DIR" ]
+then
+    echo "Paths not set up. Run this script via setup.sh in the root dotfiles"
+    echo "folder or source paths.sh manually."
+    exit 1
+fi
+
 
 echo "1. Linking dotfiles."
 $SETUP_SCRIPTS_DIR/link.sh
@@ -24,5 +36,8 @@ echo "5. Adding input sources"
 
 echo "6. Setting sane defaults for OSX."
 /bin/bash $SETUP_SCRIPTS_DIR/defaults.sh
+
+echo "7. Setting sane defaults for apps"
+/bin/bash $SETUP_SCRIPTS_DIR/apps.sh
 
 exit 0

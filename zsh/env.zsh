@@ -10,4 +10,4 @@ export ANDROID_HOME=/usr/local/opt/android-sdk      # Android SDK
 
 export MANPATH="/usr/local/man:$MANPATH"
 
-export HOMEBREW_NO_EMOJI=1  # Disable homebrew beer mug.
+eval `/usr/libexec/path_helper -s`                  # Tex paths
