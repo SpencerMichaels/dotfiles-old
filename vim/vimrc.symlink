@@ -32,8 +32,8 @@
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-repeat'
     Plugin 'tpope/vim-abolish'
-    Plugin 'Raimondi/delimitMate'
     Plugin 'lervag/vimtex'
+    Plugin 'jiangmiao/auto-pairs'
 
     " Navigation
     Plugin 'Lokaltog/vim-easymotion'
@@ -73,7 +73,12 @@
     set t_Co=256                " Use 256 colors
 
     colorscheme solarized
+    let solarized_theme=$SOLARIZED_THEME
+    if solarized_theme == 'dark'
+    set background=dark
+    else
     set background=light
+    endif
 
     if has("gui_running")
         set guifont=DejaVu_Sans_Mono_for_Powerline:h12
@@ -217,11 +222,6 @@
     " Format C-like files automatically upon saving
     "autocmd FileType c,cpp,objc autocmd BufWritePre <buffer> :ClangFormat
 " }}}
-"
-" {{{ DELIMITMATE
-    "let g:delimitMate_quotes="\" ' ` * $ |"
-    "let g:delimitMate_smart_matchpairs=""
-" }}}
 
 " {{{ SYNTASTIC
     " Use clang and C++11 stdlib
@@ -282,4 +282,9 @@
     let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
     let g:UltiSnipsListSnippets="<C-l>"
+" }}}
+
+" JAVASCRIPT {{{
+    " Two spaces per indent level
+    autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 " }}}

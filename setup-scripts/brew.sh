@@ -23,6 +23,7 @@ BREW_PACKAGES=(
     duti
     grc
     "macvim --with-override-system-vim"
+    mpc
     "mpd --with-flac --with-libmms"
     "ncmpcpp --with-clock --with-visualizer"
     python3

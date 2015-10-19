@@ -1,10 +1,129 @@
 <?xml version="1.0"?>
 <root>
+    <!-- Virtual keycodes for MPD control -->
+
+    <!-- Previous song -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_prev</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc prev ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Next song -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_next</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc next ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Toggle play/pause -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_toggle</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc toggle ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Stop playing completely -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_stop</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc stop ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Toggle random shuffle -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_random</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc random ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Rewind by 1 second -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_rewind</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc seek -00:00:01]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Fast forward by 1 second -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_fast_forward</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc seek +00:00:01]]>
+        </url>
+    </vkopenurldef>
+
+    <modifierdef>MPC_PREV_REPEAT</modifierdef>
+
+    <item>
+        <name>Media keys control MPD via MPC</name>
+        <appendix>NOTE: Expects /usr/local/bin/mpc to exist</appendix>
+        <appendix>Prev/play/forward act as expected</appendix>
+        <appendix>TODO: Holding prev/forward rewinds/fast-forwards</appendix>
+        <appendix>Shift+prev toggles random shuffle </appendix>
+        <appendix>Shift+play stops playing completely</appendix>
+        <identifier>private.mpd_control</identifier>
+
+        <!-- Previous song / TODO rewind -->
+        <autogen>
+            __HoldingKeyToKey__
+            ConsumerKeyCode::MUSIC_PREV,
+
+            @begin
+            KeyCode::VK_OPEN_URL_SHELL_mpc_next,
+            @end
+
+            @begin
+            KeyCode::VK_OPEN_URL_SHELL_mpc_rewind,
+            @end
+        </autogen>
+
+        <!-- Next song / TODO fast forward -->
+        <autogen>
+            __HoldingKeyToKey__
+            ConsumerKeyCode::MUSIC_NEXT,
+
+            @begin
+            KeyCode::VK_OPEN_URL_SHELL_mpc_next,
+            @end
+
+            @begin
+            KeyCode::VK_OPEN_URL_SHELL_mpc_fast_forward,
+            @end
+        </autogen>
+
+        <!-- Toggle play/pause -->
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_toggle
+        </autogen>
+
+        <!-- Stop completely -->
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::SHIFT_L,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_stop
+        </autogen>
+
+        <!-- Toggle random shuffle -->
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_PREV, ModifierFlag::SHIFT_L,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_random
+        </autogen>
+    </item>
+
     <item>
         <name>Remap Control_L to Command+Option+Shift+Control</name>
         <identifier>private.left_control_to_cosc</identifier>
         <autogen>
-            --KeyToKey--
+            __KeyToKey__
             KeyCode::F19,
 
             KeyCode::COMMAND_L,
@@ -16,7 +135,7 @@
         <name>Remap Option_R to Option+Shift+Control</name>
         <identifier>private.right_option_to_osc</identifier>
         <autogen>
-            --KeyToKey--
+            __KeyToKey__
             KeyCode::F18,
 
             KeyCode::OPTION_L,
@@ -30,7 +149,7 @@
 
         <identifier>private.capslock</identifier>
 
-        <autogen>--KeyToKey--
+        <autogen>__KeyToKey__
             KeyCode::ESCAPE,
             KeyCode::CAPSLOCK</autogen>
     </item>
@@ -45,10 +164,11 @@
         <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
         <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_R</autogen>
         <!-- shift rolls -->
-        <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
-        <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
     </item>
 
+    <!-- Input source virtual keycode definitions -->
     <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SOGOU</name>
         <inputsourceid_equal>com.sogou.inputmethod.sogou.pinyin</inputsourceid_equal>

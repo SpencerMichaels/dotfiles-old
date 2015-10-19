@@ -1,6 +1,12 @@
 #!/bin/bash
 # Sets decent defaults for OSX
 
+echo "- Starting MPD by default."
+ln -sfv /usr/local/opt/mpd/*.plist ~/Library/LaunchAgents
+
+echo "- Disable spell check."
+defaults write NSAutomaticSpellingCorrectionEnabled -bool false
+
 echo "- Don't save to iCloud."
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 

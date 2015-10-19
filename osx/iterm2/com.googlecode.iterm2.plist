@@ -651,15 +651,17 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>571 483 606 456 0 0 1680 1027 </string>
+	<string>571 570 606 456 0 0 1680 1027 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>532 476 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>843 503 836 517 0 0 1680 1027 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
 	<string>843 5 836 503 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>5 0 836 517 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>842 503 838 518 0 0 1680 1027 </string>
+	<string>843 5 836 503 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>4 517 838 504 0 0 1680 1027 </string>
+	<string>4 503 836 517 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_B59B86E7-8C3A-4714-B9C9-A9B09758CD86</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_E7C27460-2220-43F5-B73F-78D39AC685D3</key>
@@ -876,6 +878,8 @@
 			<integer>118</integer>
 			<key>Command</key>
 			<string></string>
+			<key>Cursor Boost</key>
+			<real>0.0</real>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -3618,6 +3622,10 @@
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
+	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
+	<real>465455351.82660198</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -3672,7 +3680,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>~/.dotfiles/osx/iterm2/</string>
+	<string>/Users/spencer/.dotfiles/osx/iterm2</string>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -3690,7 +3698,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-10-01T03:32:44Z</date>
+	<date>2015-10-17T05:49:11Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3742,6 +3750,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20150830</string>
+	<string>2.9.20151001</string>
 </dict>
 </plist>
