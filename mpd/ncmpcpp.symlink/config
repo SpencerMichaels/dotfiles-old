@@ -509,3 +509,5 @@ song_columns_list_format = "(7f)[green]{l} (25)[cyan]{a} (40)[]{t|f} (30)[red]{b
 external_editor = "/usr/local/bin/vim"
 use_console_editor = "yes"
 user_interface = "alternative"
+
+ask_before_clearing_playlists="no"

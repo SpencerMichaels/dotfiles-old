@@ -46,7 +46,7 @@
     <vkopenurldef>
         <name>KeyCode::VK_OPEN_URL_SHELL_mpc_rewind</name>
         <url type="shell">
-            <![CDATA[ /usr/local/bin/mpc seek -00:00:01]]>
+            <![CDATA[ /usr/local/bin/mpc seek -00:00:01 ]]>
         </url>
     </vkopenurldef>
 
@@ -54,11 +54,9 @@
     <vkopenurldef>
         <name>KeyCode::VK_OPEN_URL_SHELL_mpc_fast_forward</name>
         <url type="shell">
-            <![CDATA[ /usr/local/bin/mpc seek +00:00:01]]>
+            <![CDATA[ /usr/local/bin/mpc seek +00:00:01 ]]>
         </url>
     </vkopenurldef>
-
-    <modifierdef>MPC_PREV_REPEAT</modifierdef>
 
     <item>
         <name>Media keys control MPD via MPC</name>
@@ -72,10 +70,10 @@
         <!-- Previous song / TODO rewind -->
         <autogen>
             __HoldingKeyToKey__
-            ConsumerKeyCode::MUSIC_PREV,
+            ConsumerKeyCode::MUSIC_PREV, ModifierFlag::NONE
 
             @begin
-            KeyCode::VK_OPEN_URL_SHELL_mpc_next,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_prev,
             @end
 
             @begin
@@ -86,7 +84,7 @@
         <!-- Next song / TODO fast forward -->
         <autogen>
             __HoldingKeyToKey__
-            ConsumerKeyCode::MUSIC_NEXT,
+            ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::NONE
 
             @begin
             KeyCode::VK_OPEN_URL_SHELL_mpc_next,
@@ -107,14 +105,16 @@
         <!-- Stop completely -->
         <autogen>
             __KeyToKey__
-            ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::SHIFT_L,
+            ConsumerKeyCode::MUSIC_PLAY,
+                MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
             KeyCode::VK_OPEN_URL_SHELL_mpc_stop
         </autogen>
 
         <!-- Toggle random shuffle -->
         <autogen>
             __KeyToKey__
-            ConsumerKeyCode::MUSIC_PREV, ModifierFlag::SHIFT_L,
+            ConsumerKeyCode::MUSIC_PREV,
+                MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
             KeyCode::VK_OPEN_URL_SHELL_mpc_random
         </autogen>
     </item>
@@ -217,5 +217,71 @@
             KeyCode::VK_CHANGE_INPUTSOURCE_US, KeyCode::VK_WAIT_10MS,
             KeyCode::F18,
             Option::NOREPEAT</autogen>
+    </item>
+
+    <!-- Volume up (no overlay) -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_volume_up</name>
+        <url type="shell">
+            <![CDATA[ osascript -e "set volume output volume `expr $(osascript -e 'get output volume of (get volume settings)') + 5`" ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Volume down (no overlay) -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_volume_down</name>
+        <url type="shell">
+            <![CDATA[ osascript -e "set volume output volume `expr $(osascript -e 'get output volume of (get volume settings)') - 5`" ]]>
+        </url>
+    </vkopenurldef>
+
+    <item>
+        <name>Volume change without overlay</name>
+        <identifier>private.volume_change_no_overlay</identifier>
+
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::VOLUME_UP, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_volume_up
+        </autogen>
+
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_volume_down
+        </autogen>
+    </item>
+
+    <!-- Brightness up (no overlay) -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_brightness_up</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/brightness -m $(awk "BEGIN {print ($(echo "$(/usr/local/bin/brightness -l)" | grep 'display 0: brightness ' | sed 's/display 0: brightness //') + 0.05); exit}") ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Brightness down (no overlay) -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_brightness_down</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/brightness -m $(awk "BEGIN {print ($(echo "$(/usr/local/bin/brightness -l)" | grep 'display 0: brightness ' | sed 's/display 0: brightness //') - 0.05); exit}") ]]>
+        </url>
+    </vkopenurldef>
+
+    <item>
+        <name>Brightness change without overlay</name>
+        <identifier>private.brightness_change_no_overlay</identifier>
+
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_brightness_up
+        </autogen>
+
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_brightness_down
+        </autogen>
     </item>
 </root>

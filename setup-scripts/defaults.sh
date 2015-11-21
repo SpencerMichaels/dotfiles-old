@@ -1,7 +1,10 @@
 #!/bin/bash
 # Sets decent defaults for OSX
 
-echo "- Starting MPD by default."
+echo "- Disable shake to locate cursor."
+defaults write CGDisableCursorLocationMagnification -bool YES
+
+echo "- Start MPD by default."
 ln -sfv /usr/local/opt/mpd/*.plist ~/Library/LaunchAgents
 
 echo "- Disable spell check."

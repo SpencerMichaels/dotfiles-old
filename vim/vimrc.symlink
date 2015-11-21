@@ -21,6 +21,7 @@
     " General
     Plugin 'Shougo/unite.vim'
     Plugin 'Shougo/vimproc.vim'
+    Plugin 'derekwyatt/vim-fswitch'
 
     " Syntax checking/parsing
     Plugin 'majutsushi/tagbar'
@@ -34,6 +35,8 @@
     Plugin 'tpope/vim-abolish'
     Plugin 'lervag/vimtex'
     Plugin 'jiangmiao/auto-pairs'
+    Plugin 'terryma/vim-multiple-cursors'
+    Plugin 'vim-scripts/h2cppx'
 
     " Navigation
     Plugin 'Lokaltog/vim-easymotion'
@@ -135,7 +138,6 @@
     noremap <Tab> :bn<CR>
     noremap <S-Tab> :bp<CR>
     map <ESC><ESC> :w<cr>
-    inoremap jj <ESC>
 
     " Move to next column rather than next line when wrapped
     noremap j gj
@@ -171,7 +173,7 @@
     nnoremap <leader>u :GundoToggle<cr>
     nnoremap <leader>f :NERDTreeToggle<cr>
     nnoremap <leader>t :TagbarToggle<cr>
-    nnoremap <leader>h :A<cr>
+    nnoremap <leader>h :FSHere<cr>
 
     " TODO: Use YcmDiags when editing YCM-eligible files, else use Errors
     nnoremap <leader>e :YcmDiags<cr>
@@ -195,6 +197,9 @@
     " Autocomplete settings
     autocmd FileType tex :set ai nocin nosi inde=
 
+    " Wrapping
+    autocmd FileType tex :set tw=80 fo+=t
+
     " Pretty unicode in Latex
     let g:tex_conceal='adgm'
     "autocmd FileType tex set cole=2
@@ -215,7 +220,8 @@
                 \ "Standard" : "C++11",
                 \ "PointerBindsToType" : "true",
                 \ "BreakBeforeBraces" : "Stroustrup",
-                \ "ColumnLimit" : 80 }
+                \ "ColumnLimit" : 80,
+                \ "AllowShortFunctionsOnASingleLine" : "Inline" }
     autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
     autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 

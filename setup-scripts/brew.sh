@@ -20,6 +20,7 @@ BREW_PACKAGES=(
     ack
     autojump
     "caskroom/cask/brew-cask"
+    ctags
     duti
     grc
     "macvim --with-override-system-vim"
@@ -29,15 +30,18 @@ BREW_PACKAGES=(
     python3
     reattach-to-user-namespace
     tmux
+    wget
     zsh
 )
 CASK_PACKAGES=(
     alfred
+    bettertouchtool
     google-chrome
     iterm2-beta
     karabiner
     seil
     spectacle
+    the-unarchiver
     transmission
 )
 
