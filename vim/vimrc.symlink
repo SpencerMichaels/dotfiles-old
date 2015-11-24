@@ -54,6 +54,7 @@
     " External integration
     Plugin 'tpope/vim-dispatch'         " Asynchronous builds
     Plugin 'tpope/vim-fugitive'         " Git
+    Plugin 'ervandew/eclim.git'         " Eclipse
 
     call vundle#end()
     filetype plugin indent on
@@ -97,6 +98,9 @@
 
         " Remove scrollbars
         set guioptions-=rlRL
+
+        " Alt = meta for MacVim
+        set macmeta
     endif
 " }}}
 
