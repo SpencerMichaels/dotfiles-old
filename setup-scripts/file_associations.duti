@@ -1,6 +1,8 @@
 org.vim.MacVim public.shell-script all
 org.vim.MacVim public.unix-executable all
 #org.vim.MacVim com.apple.property-list all
+org.vim.MacVim .lua all
+org.vim.MacVim .json all
 org.vim.MacVim .tex all
 org.vim.MacVim .txt all
 org.vim.MacVim .md all

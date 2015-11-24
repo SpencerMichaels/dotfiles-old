@@ -1,6 +1,9 @@
 #!/bin/bash
-# Installs Vim addons through Vundle. TODO: File associations.
+# Installs Vim addons through Vundle.
 
+# Ensure paths are setup first
+set -e
+./pathcheck.sh
 
 # Check that the required paths are set up first.
 if [ -z "$DOTFILES_ROOT_DIR" ] && \
@@ -19,8 +22,5 @@ git clone https://github.com/VundleVim/Vundle.vim.git \
 
 echo "- Installing Vundle plugins."
 vim +PluginInstall +qall
-
-# duti?
-duti file_associations.duti
 
 exit 0

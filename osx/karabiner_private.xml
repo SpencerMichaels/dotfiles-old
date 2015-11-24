@@ -185,21 +185,16 @@
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_US</name>
         <inputsourceid_equal>com.apple.keylayout.US</inputsourceid_equal>
     </vkchangeinputsourcedef>
-    <vkchangeinputsourcedef>
-        <name>KeyCode::VK_CHANGE_INPUTSOURCE_RUSSIAN</name>
-        <inputsourceid_equal>com.apple.keylayout.Russian</inputsourceid_equal>
-    </vkchangeinputsourcedef>
 
     <item>
         <name>Input switcher shortcuts</name>
         <appendix>Hyper + comma: Traditional Chinese</appendix>
         <appendix>Hyper + period: Simplified Chinese</appendix>
         <appendix>Hyper + slash: US Extended</appendix>
-        <appendix>Hyper + quote: Russian</appendix>
         <identifier>private.multilanguage_input</identifier>
 
         <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-            KeyCode::VK_CHANGE_INPUTSOURCE_RUSSIAN, KeyCode::VK_WAIT_10MS,
+            KeyCode::VK_CHANGE_INPUTSOURCE_US, KeyCode::VK_WAIT_10MS,
             KeyCode::F18,
             Option::NOREPEAT</autogen>
 
@@ -210,11 +205,6 @@
 
         <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
             KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_TRADITIONAL, KeyCode::VK_WAIT_10MS,
-            KeyCode::F18,
-            Option::NOREPEAT</autogen>
-
-        <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-            KeyCode::VK_CHANGE_INPUTSOURCE_US, KeyCode::VK_WAIT_10MS,
             KeyCode::F18,
             Option::NOREPEAT</autogen>
     </item>

@@ -1,5 +1,9 @@
 #!/bin/bash
+# Sets up US English and Chinese input sources
+
+# Ensure paths are setup first
 set -e
+./pathcheck.sh
 
 # Clear existing input sources
 echo "- Clearing input sources."
@@ -29,8 +33,3 @@ defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
 echo "  - Chinese handwriting"
 defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
     '<dict><key>InputSourceKind</key><string>Non Keyboard Input Method</string><key>Bundle ID</key><string>com.apple.inputmethod.ChineseHandwriting</string></dict>'
-
-# Russian Русский
-echo "  - Russian"
-defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
-    '<dict><key>InputSourceKind</key><string>Keyboard Layout</string><key>KeyboardLayout ID</key><integer>19456</integer><key>KeyboardLayout Name</key><string>Russian</string></dict>'

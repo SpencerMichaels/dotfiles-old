@@ -1,7 +1,9 @@
 #!/bin/sh
 # Installs homebrew and a few packages needed for basic work
 
+# Ensure paths are setup first
 set -e
+./pathcheck.sh
 
 # Check if Homebrew exists
 if [ ! $(which brew) ] && [ "$(uname)" = "Darwin" ]
@@ -36,6 +38,7 @@ BREW_PACKAGES=(
 CASK_PACKAGES=(
     alfred
     bettertouchtool
+    hammerspoon
     google-chrome
     iterm2-beta
     karabiner

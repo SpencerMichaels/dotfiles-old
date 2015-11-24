@@ -1,6 +1,10 @@
 #!/bin/bash
 # Sets decent defaults for OSX
 
+# Ensure paths are setup first
+set -e
+./pathcheck.sh
+
 echo "- Disable shake to locate cursor."
 defaults write CGDisableCursorLocationMagnification -bool YES
 

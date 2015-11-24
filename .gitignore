@@ -6,3 +6,5 @@ vim/vim.symlink/.undo
 vim/vim.symlink/bundle/*
 mpd/ncmpcpp.symlink/error.log
 mpd/ncmpcpp.symlink/lyrics/
+hammerspoon.symlink/*
+!hammerspoon.symlink/init.lua

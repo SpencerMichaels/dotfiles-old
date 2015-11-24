@@ -1,20 +1,13 @@
 #!/bin/bash
 # Configures defaults for applications. Assumes, of course, that they are
 # installed.
+
+# Ensure paths are setup first
 set -e
+./pathcheck.sh
 
-
-# Check that the required paths are set up first.
-if [ -z "$DOTFILES_ROOT_DIR" ] && \
-   [ -z "$SETUP_SCRIPTS_DIR" ] && \
-   [ -z "$DOTFILES_OSX_DIR" ]
-then
-    echo "Paths not set up. Run this script via setup.sh in the root dotfiles"
-    echo "folder or source paths.sh manually."
-    exit 1
-    echo fine
-fi
-
+echo "- Filetype associations"
+duti file_associations.duti
 
 # Set iTerm2 configuration location
 echo "- Iterm2"

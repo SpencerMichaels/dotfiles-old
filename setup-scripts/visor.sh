@@ -1,5 +1,9 @@
-set -e
+#!/bin/bash
+# Sets up a second iTerm application that can be run
 
+# Ensure paths are setup first
+set -e
+./pathcheck.sh
 
 # Check that the required paths are set up first.
 if [ -z "$DOTFILES_ROOT_DIR" ] && \
@@ -30,4 +34,5 @@ PLIST="$VISOR/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Add :LSUIElement string 1" "$PLIST"
 
 echo '- Setting defaults.'
-defaults write com.googlecode.iterm2visor PrefsCustomFolder "${DOTFILES_ROOT_DIR}/osx/iterm2"
+defaults write com.googlecode.iterm2visor PrefsCustomFolder \
+    "${DOTFILES_ROOT_DIR}/osx/iterm2"

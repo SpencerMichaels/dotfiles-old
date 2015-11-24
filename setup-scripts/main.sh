@@ -1,7 +1,9 @@
 #!/bin/bash
 # Runs all the other setup scripts in this folder.
-set -e
 
+# Ensure paths are setup first
+set -e
+./pathcheck.sh
 
 # Check that the required paths are set up first.
 if [ -z "$DOTFILES_ROOT_DIR" ] && \

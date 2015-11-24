@@ -2,8 +2,10 @@
 # Sets up Karabiner/Seil and changes the function of a few modifier keys.
 #   - Caps lock to esc/ctrl
 #   - Ctrl to hyper (shift+ctrl+cmd+alt)
-set -e
 
+# Ensure paths are setup first
+set -e
+./pathcheck.sh
 
 # Check that the required paths are set up first.
 if [ -z "$DOTFILES_ROOT_DIR" ] && \
