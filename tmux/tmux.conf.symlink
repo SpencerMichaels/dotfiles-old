@@ -18,10 +18,10 @@ set-option -g base-index 1
 setw -g pane-base-index 1
 
 # Mouse mode settings
-setw -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane off
-set -g mouse-select-window off
+#setw -g mode-mouse on
+#set -g mouse-select-pane on
+#set -g mouse-resize-pane off
+#set -g mouse-select-window off
 
 # Automatically rename windows based on their running processes
 # set-window-option -g automatic-rename on

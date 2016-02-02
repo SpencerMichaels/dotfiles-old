@@ -475,13 +475,6 @@
 	<real>1</real>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0x5c-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>12</integer>
-			<key>Text</key>
-			<string>it2_switch_theme\n</string>
-		</dict>
 		<key>0x6e-0x100000</key>
 		<dict>
 			<key>Action</key>
@@ -597,7 +590,7 @@
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
-	<false/>
+	<true/>
 	<key>HideTab</key>
 	<true/>
 	<key>HighlightTabLabels</key>
@@ -662,6 +655,10 @@
 	</dict>
 	<key>NSWindow Frame Preferences</key>
 	<string>269 545 606 456 0 0 1680 1027 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>1134 118 400 129 0 0 1680 1027 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>532 476 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 672 1680 355 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -3706,7 +3703,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-11-12T21:56:28Z</date>
+	<date>2016-02-01T20:12:24Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3758,6 +3755,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20151111</string>
+	<string>2.9.20160113</string>
 </dict>
 </plist>

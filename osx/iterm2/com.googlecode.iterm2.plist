@@ -475,13 +475,6 @@
 	<real>1</real>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0x5c-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>12</integer>
-			<key>Text</key>
-			<string>it2_switch_theme\n</string>
-		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -653,17 +646,17 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>697 131 568 186 0 0 1680 1027 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>571 570 606 456 0 0 1680 1027 </string>
+	<string>571 569 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>73 0 700 513 0 0 1680 1027 </string>
+	<string>492 385 700 513 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>843 5 851 503 0 0 1680 1027 </string>
+	<string>4 18 1676 1006 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>5 517 836 503 0 0 1680 1027 </string>
+	<string>5 3 836 1021 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>843 517 836 503 0 0 1680 1027 </string>
+	<string>5 5 836 503 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>5 517 836 503 0 0 1680 1027 </string>
+	<string>843 5 836 503 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_B59B86E7-8C3A-4714-B9C9-A9B09758CD86</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_E7C27460-2220-43F5-B73F-78D39AC685D3</key>
@@ -3712,7 +3705,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-11-12T21:35:50Z</date>
+	<date>2016-02-02T04:36:00Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3764,6 +3757,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20151111</string>
+	<string>2.9.20160113</string>
 </dict>
 </plist>

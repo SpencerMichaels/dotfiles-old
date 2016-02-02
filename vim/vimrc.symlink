@@ -12,7 +12,8 @@
     Plugin 'altercation/vim-colors-solarized.git'   " Fancy colorscheme
 
     " Statusbar
-    Plugin 'bling/vim-airline'      " Fancy statusline
+    Plugin 'vim-airline/vim-airline'        " Fancy statusline
+    Plugin 'vim-airline/vim-airline-themes'
     Plugin 'bling/vim-bufferline'   " Show buffer list in command bar
 
     " Filesystem
@@ -54,7 +55,6 @@
     " External integration
     Plugin 'tpope/vim-dispatch'         " Asynchronous builds
     Plugin 'tpope/vim-fugitive'         " Git
-    Plugin 'ervandew/eclim.git'         " Eclipse
 
     call vundle#end()
     filetype plugin indent on
@@ -243,7 +243,9 @@
                 \ "PointerBindsToType" : "true",
                 \ "BreakBeforeBraces" : "Stroustrup",
                 \ "ColumnLimit" : 80,
-                \ "AllowShortFunctionsOnASingleLine" : "Inline" }
+                \ "AllowShortFunctionsOnASingleLine" : "false",
+                \ "AllowShortBlocksOnASingleLine" : "false",
+                \ "BreakConstructorInitializersBeforeComma" : "true"}
     autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
     autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
@@ -314,5 +316,5 @@
 
 " JAVASCRIPT {{{
     " Two spaces per indent level
-    autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+    "autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 " }}}
