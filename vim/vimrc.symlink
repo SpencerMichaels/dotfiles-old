@@ -9,7 +9,7 @@
     Plugin 'gmarik/Vundle.vim'      " Plugin management
 
     " Color scheme
-    Plugin 'altercation/vim-colors-solarized.git'   " Fancy colorscheme
+    Plugin 'altercation/vim-colors-solarized.git'
 
     " Statusbar
     Plugin 'vim-airline/vim-airline'        " Fancy statusline
@@ -264,14 +264,19 @@
     hi! link SyntasticErrorLine Normal
     hi! link SignColumn LineNr
     " Note: These colors are adjusted specifically to fit Solarized Light
-    hi SyntasticErrorSign guifg=#dc322f guibg=#eee8d5
+    "hi SyntasticErrorSign guifg=#dc322f guibg=#eee8d5
+
+    let g:syntastic_warning_symbol = '△ '
+    let g:syntastic_error_symbol = '✗ '
 
     " Python syntax checking
     "let g:syntastic_python_python_exec = '/usr/local/bin/python'
     let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
-    " Don't highlight warnings in the editor window
-    let g:syntastic_quiet_messages = { "level": "warnings" }
+    " Ignore TeX warnings. These are almost guaranteed to be useless.
+    autocmd FileType tex :let g:syntastic_quiet_messages = { "level": "warnings" }
+
+    let g:syntastic_auto_loc_list = 3
 " }}}
 
 " {{{ TAGBAR
@@ -304,6 +309,9 @@
     let g:ycm_semantic_triggers = {
         \  'tex'  : ['{'],
     \ }
+
+    " Disable YCM's error checking so Syntastic can use its own
+    "let g:ycm_show_diagnostics_ui = 0
 " }}}
 
 " ULTISNIPS {{{

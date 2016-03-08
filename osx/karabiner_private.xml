@@ -43,12 +43,12 @@
     </vkopenurldef>
 
     <!-- Rewind by 1 second -->
-    <vkopenurldef>
+    <!--<vkopenurldef>
         <name>KeyCode::VK_OPEN_URL_SHELL_mpc_rewind</name>
         <url type="shell">
             <![CDATA[ /usr/local/bin/mpc seek -00:00:01 ]]>
         </url>
-    </vkopenurldef>
+    </vkopenurldef>-->
 
     <!-- Fast forward by 1 second -->
     <vkopenurldef>
@@ -69,6 +69,11 @@
 
         <!-- Previous song / TODO rewind -->
         <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_PREV, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_prev,
+        </autogen>
+        <!--<autogen>
             __HoldingKeyToKey__
             ConsumerKeyCode::MUSIC_PREV, ModifierFlag::NONE
 
@@ -79,10 +84,15 @@
             @begin
             KeyCode::VK_OPEN_URL_SHELL_mpc_rewind,
             @end
-        </autogen>
+        </autogen>-->
 
         <!-- Next song / TODO fast forward -->
         <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_next,
+        </autogen>
+        <!--<autogen>
             __HoldingKeyToKey__
             ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::NONE
 
@@ -93,7 +103,7 @@
             @begin
             KeyCode::VK_OPEN_URL_SHELL_mpc_fast_forward,
             @end
-        </autogen>
+        </autogen>-->
 
         <!-- Toggle play/pause -->
         <autogen>

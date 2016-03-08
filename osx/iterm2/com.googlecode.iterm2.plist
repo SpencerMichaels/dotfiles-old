@@ -650,9 +650,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>492 385 700 513 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 18 1676 1006 0 0 1680 1027 </string>
+	<string>5 535 836 489 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>5 3 836 1021 0 0 1680 1027 </string>
+	<string>5 5 836 503 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>5 5 836 503 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -3705,7 +3705,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-02-02T04:36:00Z</date>
+	<date>2016-03-07T05:52:15Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3715,7 +3715,7 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
@@ -3757,6 +3757,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20160113</string>
+	<string>2.9.20160206</string>
 </dict>
 </plist>
