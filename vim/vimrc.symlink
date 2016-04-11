@@ -106,6 +106,7 @@
 
 " {{{ DISPLAY
     set number              " Line numbers
+    "set relativenumber      " Relative line numbers
     set ruler               " Show the cursor's position in the statusline
     set showcmd             " Show the command being typed
     set autoindent          " Autoindent spaces

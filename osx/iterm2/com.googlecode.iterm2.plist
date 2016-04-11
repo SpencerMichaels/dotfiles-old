@@ -10,6 +10,8 @@
 	<true/>
 	<key>AllowClipboardAccess</key>
 	<false/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -650,11 +652,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>492 385 700 513 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>5 535 836 489 0 0 1680 1027 </string>
+	<string>843 517 836 503 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>5 5 836 503 0 0 1680 1027 </string>
+	<string>843 535 836 489 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>5 5 836 503 0 0 1680 1027 </string>
+	<string>5 0 836 517 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>843 5 836 503 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_B59B86E7-8C3A-4714-B9C9-A9B09758CD86</key>
@@ -2875,7 +2877,7 @@
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
-			<true/>
+			<false/>
 			<key>Use Canonical Parser</key>
 			<false/>
 			<key>Use Italic Font</key>
@@ -3621,6 +3623,10 @@
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
+	<integer>1</integer>
 	<key>NoSyncLastTipTime</key>
 	<real>465449505.50927001</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -3688,6 +3694,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/spencer/.dotfiles/osx/iterm2/</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -3705,7 +3713,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-03-07T05:52:15Z</date>
+	<date>2016-04-06T23:16:52Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3757,6 +3765,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20160206</string>
+	<string>2.9.20160313</string>
 </dict>
 </plist>
