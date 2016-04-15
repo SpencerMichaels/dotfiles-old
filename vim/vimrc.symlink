@@ -50,7 +50,9 @@
     " Snippets and completion
     Plugin 'SirVer/ultisnips'           " Snippets
     Plugin 'honza/vim-snippets'         " Snippet repo for UltiSnips
-    Plugin 'valloric/YouCompleteMe'     " Completion for C-family languages
+    "Plugin 'valloric/YouCompleteMe'
+    Plugin 'ervandew/supertab'
+    Plugin 'Rip-Rip/clang_complete'     " Completion for C-family languages
 
     " External integration
     Plugin 'tpope/vim-dispatch'         " Asynchronous builds
@@ -121,6 +123,10 @@
     set colorcolumn=80      " Highlight column 80 on each line
     set formatoptions+=qrn1 " Allow formatting of comments with 'gq', automatically insert comment leaders, wrap numbered lists, and break before one-letter words
     set nostartofline       " Don't return the cursor to the start of the line when moving it around
+
+    " from https://stackoverflow.com/questions/11300788/vim-function-hints-for-c
+    set pumheight=10             " Ensure the complete menu doesn't get too big
+    set completeopt=menu,longest
 " }}}
 
 " {{{ FORMATTING
@@ -198,9 +204,7 @@
     nnoremap <leader>t :TagbarToggle<cr>
     nnoremap <leader>h :FSHere<cr>
 
-    " TODO: Use YcmDiags when editing YCM-eligible files, else use Errors
-    nnoremap <leader>e :YcmDiags<cr>
-    "nnoremap <leader>e :Errors<cr>
+    nnoremap <leader>e :Errors<cr>
 
     " Swap ; and :
     " TODO: this may break some mappings
@@ -256,9 +260,9 @@
 
 " {{{ SYNTASTIC
     " Use clang and C++11 stdlib
-    " Not necessary when YCM handles C-family languages
-    "let g:syntastic_cpp_compiler = 'clang++'
-    "let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+    let g:syntastic_cpp_compiler = 'clang++'
+    let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+    let g:syntastic_cpp_include_dirs = ["/usr/include/qt/QtWidgets/"]
 
     " Make Syntastic's error markers blend in more nicely
     "hi! link SyntasticErrorLine SignColumn
@@ -277,11 +281,17 @@
     " Ignore TeX warnings. These are almost guaranteed to be useless.
     autocmd FileType tex :let g:syntastic_quiet_messages = { "level": "warnings" }
 
-    let g:syntastic_auto_loc_list = 3
+    let g:syntastic_auto_loc_list = 1
+
+    let g:syntastic_cpp_include_dirs = ["/usr/local/opt/qt5", "/usr/local/opt/qt5/include"]
 " }}}
 
 " {{{ TAGBAR
     let g:tagbar_width=30
+" }}}
+
+" {{{ SUPERTAB
+    let g:SuperTabDefaultCompletionType='context'
 " }}}
 
 " {{{ VIMTEX
@@ -296,23 +306,31 @@
 " }}}
 
 " {{{ YOUCOMPLETEME
-" TODO below
-    let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
-    let g:ycm_confirm_extra_conf = 0 " Use alternate confs without confirmation
+    "let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
+    "let g:ycm_confirm_extra_conf = 0 " Use alternate confs without confirmation
 
-    let g:ycm_autoclose_preview_window_after_completion = 1
+    "let g:ycm_autoclose_preview_window_after_completion = 1
     " Alternately, disable this completely
     "set completeopt-=preview
 
-    let g:ycm_key_invoke_completion = '<C-Space>'
-    let g:ycm_key_list_select_completion = ['<Tab>']
-    let g:ycm_key_list_previous_completion = ['<S-Tab>']
-    let g:ycm_semantic_triggers = {
-        \  'tex'  : ['{'],
-    \ }
+    "let g:ycm_key_invoke_completion = '<C-Space>'
+    "let g:ycm_key_list_select_completion = ['<Tab>']
+    "let g:ycm_key_list_previous_completion = ['<S-Tab>']
+    "let g:ycm_semantic_triggers = {
+    "    \  'tex'  : ['{'],
+    "\ }
 
     " Disable YCM's error checking so Syntastic can use its own
     "let g:ycm_show_diagnostics_ui = 0
+" }}}
+
+" {{{ CLANG-COMPLETE
+    let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
+    let g:clang_complete_auto=1  " Start autocomplete by default
+    let g:clang_snippets=1       " Use a snippet engine for placeholders
+    let g:clang_snippets_engine='ultisnips' " Use ultisnips
+    let g:clang_auto_select=2    " Automatically select and insert the first match
+
 " }}}
 
 " ULTISNIPS {{{
@@ -325,5 +343,9 @@
 
 " JAVASCRIPT {{{
     " Two spaces per indent level
-    "autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+    autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+" }}}
+
+" {{{ AUTO-PAIRS
+    let g:AutoPairsMultilineClose = 0
 " }}}
