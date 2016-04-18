@@ -104,13 +104,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light
-                         solarized-light
-                         solarized-dark
-                         leuven
-                         monokai
-                         zenburn)
+   dotspacemacs-themes '(zenburn
+                         spacemacs-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -259,11 +254,16 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
   ;; Set the YCMD server and config paths
-  (set-variable 'ycmd-server-command '("python" "/Users/spencer/devtools/ycmd/ycmd"))
-  ;; TODO: (setq 'ycmd-extra-conf-whitelist '("/Users/spencer/Projects/*"))
+  (set-variable 'ycmd-server-command `("python" ,(expand-file-name "~/devtools/ycmd/ycmd")))
+  (set-variable 'ycmd-extra-conf-whitelist `(,(expand-file-name "~/Projects/*")))
   ;; Use C++11 standard libraries for syntax checking
   (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
-  ;; TODO: Open tex-generated PDFs in TeXShop
+  (add-hook 'prog-mode-hook (lambda () (global-linum-mode t)))
+  ;; Open tex-generated PDFs in TeXShop
+  (add-hook 'LaTeX-mode-hook (lambda ()
+                               ;; Open PDFs in TeXShop
+                               (setq TeX-view-program-selection '((output-pdf "TeXShop")))
+                               (setq TeX-view-program-list '(("TeXShop" "/Applications/TeX/TeXShop.app/Contents/MacOS/TeXShop %o")))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

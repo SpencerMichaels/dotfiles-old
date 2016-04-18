@@ -10,6 +10,7 @@
 
     " Color scheme
     Plugin 'altercation/vim-colors-solarized.git'
+    Plugin 'jnurmine/Zenburn'
 
     " Statusbar
     Plugin 'vim-airline/vim-airline'        " Fancy statusline
@@ -84,13 +85,13 @@
     syntax enable               " Use syntax highlighting
     set t_Co=256                " Use 256 colors
 
-    colorscheme solarized
-    let solarized_theme=$SOLARIZED_THEME
-    if solarized_theme == 'dark'
-        set background=dark
-    else
-        set background=light
-    endif
+    colors zenburn
+    "let solarized_theme=$SOLARIZED_THEME
+    "if solarized_theme == 'dark'
+    "    set background=dark
+    "else
+    "    set background=light
+    "endif
 
     if has("gui_running")
         set guifont=DejaVu_Sans_Mono_for_Powerline:h12
