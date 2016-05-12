@@ -22,25 +22,25 @@ hs.hotkey.bind(hyper, "f", function()
     hs.hints.windowHints()
 end)
 
--- Move left
---hs.hotkey.bind(hyper, "[", function()
---    spaces.changeToSpace(relativeSpaceId(-1), false)
---end)
+-- Move left a space
+hs.hotkey.bind(hyper, "[", function()
+    spaces.changeToSpace(relativeSpaceId(-1), false)
+end)
 
--- Move left
---hs.hotkey.bind(hyper, "]", function()
---    spaces.changeToSpace(relativeSpaceId(1), false)
---end)
+-- Move right a space
+hs.hotkey.bind(hyper, "]", function()
+    spaces.changeToSpace(relativeSpaceId(1), false)
+end)
 
 -- Move current window left and follow
---hs.hotkey.bind(hyper, ";", function()
---    moveCurrentWindowToSpace(false, true)
---end)
+hs.hotkey.bind(hyper, ";", function()
+    moveCurrentWindowToSpace(false, true)
+end)
 
 -- Move current window right and follow
---hs.hotkey.bind(hyper, "'", function()
---    moveCurrentWindowToSpace(true, true)
---end)
+hs.hotkey.bind(hyper, "'", function()
+    moveCurrentWindowToSpace(true, true)
+end)
 
 function moveCurrentWindowToSpace(right, follow)
     local newSpace

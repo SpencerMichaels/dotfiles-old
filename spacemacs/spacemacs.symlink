@@ -256,14 +256,70 @@ you should place you code here."
   ;; Set the YCMD server and config paths
   (set-variable 'ycmd-server-command `("python" ,(expand-file-name "~/devtools/ycmd/ycmd")))
   (set-variable 'ycmd-extra-conf-whitelist `(,(expand-file-name "~/Projects/*")))
+  (add-hook 'prog-mode-hook 'my-prog-mode-hook)
+  (add-hook 'c-mode-hook 'my-c-mode-hook)
+  (add-hook 'c++-mode-hook 'my-c++-mode-hook)
+  (add-hook 'LaTeX-mode-hook 'my-LaTeX-mode-hook)
+  (with-eval-after-load 'linum
+    (add-hook 'evil-normal-state-entry-hook 'linum-relative-on)
+    (add-hook 'evil-normal-state-exit-hook 'linum-relative-off)
+    (custom-set-variables '(linum-format (quote "%4d")))
+    (custom-set-variables '(linum-relative-format (quote "%4s")))
+    )
+  ;; TODO: turn off relative line mode for all but active window
+  ;;(add-hook 'buffer-list-update-hook 'my-buffer-list-update-hook)
+
+  ;; LLVM C/C++ style
+  (c-add-style "llvm"
+               '("stroustrup"
+                 (c-offsets-alist . ((arglist-intro . ++)
+                                     (member-init-intro . ++)
+                                     (statement-cont . (c-lineup-assignments ++))
+                                     (innamespace . 0)
+                                     (inextern-lang . 0)))
+                 (c-basic-offset . 4)
+                 (fill-column . 80)
+                 (indent-tabs-mode . nil)))
+  )
+
+;; Programming mode
+(defun my-prog-mode-hook ()
+  ;; Show line numbers
+  (linum-mode t)
+  )
+
+;; C mode
+(defun my-c-mode-hook ()
+  (c-family-common-setup)
+  )
+
+;; C++ mode
+(defun my-c++-mode-hook ()
   ;; Use C++11 standard libraries for syntax checking
-  (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
-  (add-hook 'prog-mode-hook (lambda () (global-linum-mode t)))
-  ;; Open tex-generated PDFs in TeXShop
-  (add-hook 'LaTeX-mode-hook (lambda ()
-                               ;; Open PDFs in TeXShop
-                               (setq TeX-view-program-selection '((output-pdf "TeXShop")))
-                               (setq TeX-view-program-list '(("TeXShop" "/Applications/TeX/TeXShop.app/Contents/MacOS/TeXShop %o")))))
+  (setq flycheck-clang-language-standard "c++11")
+  (c-family-common-setup)
+  )
+
+(defun c-family-common-setup ()
+  ;; Size-4 tab shifts
+  (setq tab-width 4)
+  (setq evil-shift-width 4)
+  ;; LLVM syntax style
+  (c-set-style "llvm")
+  )
+
+;; LaTeX mode
+(defun my-LaTeX-mode-hook ()
+  ;; Open PDFs in TeXShop
+  (setq TeX-view-program-selection '((output-pdf "TeXShop")))
+  (setq TeX-view-program-list '(("TeXShop" "/Applications/TeX/TeXShop.app/Contents/MacOS/TeXShop %o")))
+  )
+
+;; Focus in hook
+(defun my-focus-in-hook ()
+  ;; Turn on relative line numbers if we're in normal mode
+  (when (eq evil-state "normal")
+    (linum-relative-on))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
