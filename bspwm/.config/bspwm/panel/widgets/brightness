@@ -1,0 +1,13 @@
+#!/bin/bash
+
+ICON_BRIGHTNESS="\uf185"
+
+BRIGHTNESS_FILE=/sys/class/backlight/acpi_video0/actual_brightness
+
+while true; do
+    brightness=`xbacklight | sed 's/\..*//g'`
+    echo -e "BRI${ICON_BRIGHTNESS} ${brightness}"
+    inotifywait -e modify --format '' "$BRIGHTNESS_FILE" > /dev/null 2>&1
+    # Wait for 200ms gradual brightness change to end
+    sleep 0.2
+done

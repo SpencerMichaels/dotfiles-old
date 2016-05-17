@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source colors_zenburn
+
+ICON_CLOCK="\uf017"
+
+while true; do
+    date_str=`date +"%a %b %d"`
+    time_str=`date +"%l:%M %p" | sed 's/^ *//'`
+    echo -e "CLK$ICON_CLOCK %{F$COL_BLUE}${date_str}%{F-} %{F$COL_YELLOW}${time_str}%{F-}"
+    sleep 5
+done

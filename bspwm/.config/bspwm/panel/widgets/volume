@@ -1,0 +1,19 @@
+#!/bin/bash
+
+ICON_MUTE="\uf026"
+ICON_ON="\uf028"
+
+# Do a fake echo when the script starts to force an update
+# alsactl monitor needs to be forced to write immediately rather than buffer,
+# otherwise the output can't be redirected
+(echo "fake"; stdbuf -oL alsactl monitor) | while read -r line; do
+    # From http://unix.stackexchange.com/questions/89571/
+    #           how-to-get-volume-level-from-the-command-line
+    volpct=`awk -F"[][]" '/dB/ { print $2 }' <(amixer sget PCM) | uniq`
+    if amixer sget Master | grep "\[on\]" > /dev/null; then
+        icon=$ICON_ON
+    else
+        icon=$ICON_MUTE
+    fi
+    echo -e "VOL${icon} `echo $volpct | sed 's/\%//g'`"
+done

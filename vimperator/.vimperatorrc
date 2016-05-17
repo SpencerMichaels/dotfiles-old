@@ -1,0 +1,3 @@
+set gui=none,tabs
+colorscheme zenburn
+set focuscontent

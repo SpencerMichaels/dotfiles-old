@@ -1,0 +1,92 @@
+#! /bin/bash
+
+source colors_zenburn
+
+NUM_MON=$(bspc query -M | wc -l)
+
+ICON_DESKTOP_FREE="\uf1db"
+ICON_DESKTOP_OCCUPIED="\uf111"
+
+COLOR_MONITOR=$COL_WHITE
+COLOR_MONITOR_FOCUSED=$COL_WHITE
+
+COLOR_DESKTOP_NAME=$COL_BLUE
+COLOR_DESKTOP_FREE=$COL_BLUE
+COLOR_DESKTOP_FOCUSED_FREE=$COL_BR_BLUE
+COLOR_DESKTOP_OCCUPIED=$COL_BLUE
+COLOR_DESKTOP_FOCUSED_OCCUPIED=$COL_BR_BLUE
+COLOR_DESKTOP_URGENT=$COL_RED
+COLOR_DESKTOP_FOCUSED_URGENT=$COL_BR_RED
+COLOR_STATE=$COL_WHITE
+
+bspc subscribe report | while read -r line; do
+    # bspwm's state
+    out=""
+    IFS=':'
+    set -- ${line#??}
+    while [ $# -gt 0 ] ; do
+        item=$1
+        name=${item#?}
+        case $item in
+            [mM]*)
+                [ $NUM_MON -lt 2 ] && shift && continue
+                case $item in
+                    m*)
+                        # monitor
+                        COL=$COLOR_MONITOR
+                        ;;
+                    M*)
+                        # focused monitor
+                        COL=$COLOR_MONITOR_FOCUSED
+                        ;;
+                esac
+                out="${out}%{F${COL}}${name}%{F-} "
+                ;;
+            [fFoOuU]*)
+                case $item in
+                    f*)
+                        # free desktop
+                        COL=$COLOR_DESKTOP_FREE
+                        DESKTOP_ICON=$ICON_DESKTOP_FREE
+                        ;;
+                    F*)
+                        # focused free desktop
+                        desktop="$name"
+                        COL=$COLOR_DESKTOP_FOCUSED_FREE
+                        DESKTOP_ICON=$ICON_DESKTOP_FREE
+                        ;;
+                    o*)
+                        # occupied desktop
+                        COL=$COLOR_DESKTOP_OCCUPIED
+                        DESKTOP_ICON=$ICON_DESKTOP_OCCUPIED
+                        ;;
+                    O*)
+                        # focused occupied desktop
+                        desktop="$name"
+                        COL=$COLOR_DESKTOP_FOCUSED_OCCUPIED
+                        DESKTOP_ICON=$ICON_DESKTOP_OCCUPIED
+                        ;;
+                    u*)
+                        # urgent desktop
+                        COL=$COLOR_DESKTOP_URGENT
+                        DESKTOP_ICON=$ICON_DESKTOP_OCCUPIED
+                        ;;
+                    U*)
+                        # focused urgent desktop
+                        desktop="$name"
+                        COL=$COLOR_DESKTOP_FOCUSED_URGENT
+                        DESKTOP_ICON=$ICON_DESKTOP_OCCUPIED
+                        ;;
+                esac
+                out="${out}%{F${COL}}${DESKTOP_ICON}%{F-} "
+                ;;
+            [LTG]*)
+                # layout, state and flags
+                out="${out}%{F$COLOR_STATE}${name}%{F-}"
+                ;;
+        esac
+        shift
+    done
+    out="${out} %{F$COLOR_DESKTOP_NAME}$desktop:%{F-}"
+    echo -e "WMS$out"
+done
