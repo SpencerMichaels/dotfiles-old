@@ -1,0 +1,11 @@
+.DS_Store
+vim/vim.symlink/.VimballRecord
+vim/vim.symlink/.backup
+vim/vim.symlink/.netrwhist
+vim/vim.symlink/.swp
+vim/vim.symlink/.undo
+vim/vim.symlink/bundle/*
+mpd/ncmpcpp.symlink/error.log
+mpd/ncmpcpp.symlink/lyrics/
+hammerspoon.symlink/*
+!hammerspoon.symlink/init.lua

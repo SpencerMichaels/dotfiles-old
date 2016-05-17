@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<root>
+    <!-- Virtual keycodes for MPD control -->
+
+    <!-- Previous song -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_prev</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc prev ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Next song -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_next</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc next ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Toggle play/pause -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_toggle</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc toggle ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Stop playing completely -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_stop</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc stop ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Toggle random shuffle -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_random</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc random ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Rewind by 1 second -->
+    <!--<vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_rewind</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc seek -00:00:01 ]]>
+        </url>
+    </vkopenurldef>-->
+
+    <!-- Fast forward by 1 second -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_mpc_fast_forward</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/mpc seek +00:00:01 ]]>
+        </url>
+    </vkopenurldef>
+
+    <item>
+        <name>Media keys control MPD via MPC</name>
+        <appendix>NOTE: Expects /usr/local/bin/mpc to exist</appendix>
+        <appendix>Prev/play/forward act as expected</appendix>
+        <appendix>TODO: Holding prev/forward rewinds/fast-forwards</appendix>
+        <appendix>Shift+prev toggles random shuffle </appendix>
+        <appendix>Shift+play stops playing completely</appendix>
+        <identifier>private.mpd_control</identifier>
+
+        <!-- Previous song / TODO rewind -->
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_PREV, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_prev,
+        </autogen>
+        <!--<autogen>
+            __HoldingKeyToKey__
+            ConsumerKeyCode::MUSIC_PREV, ModifierFlag::NONE
+
+            @begin
+            KeyCode::VK_OPEN_URL_SHELL_mpc_prev,
+            @end
+
+            @begin
+            KeyCode::VK_OPEN_URL_SHELL_mpc_rewind,
+            @end
+        </autogen>-->
+
+        <!-- Next song / TODO fast forward -->
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_next,
+        </autogen>
+        <!--<autogen>
+            __HoldingKeyToKey__
+            ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::NONE
+
+            @begin
+            KeyCode::VK_OPEN_URL_SHELL_mpc_next,
+            @end
+
+            @begin
+            KeyCode::VK_OPEN_URL_SHELL_mpc_fast_forward,
+            @end
+        </autogen>-->
+
+        <!-- Toggle play/pause -->
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_toggle
+        </autogen>
+
+        <!-- Stop completely -->
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_PLAY,
+                MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_stop
+        </autogen>
+
+        <!-- Toggle random shuffle -->
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::MUSIC_PREV,
+                MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
+            KeyCode::VK_OPEN_URL_SHELL_mpc_random
+        </autogen>
+    </item>
+
+    <item>
+        <name>Remap Control_L to Command+Option+Shift+Control</name>
+        <identifier>private.left_control_to_cosc</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::F19,
+
+            KeyCode::COMMAND_L,
+            ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+        </autogen>
+    </item>
+
+    <item>
+        <name>Remap Option_R to Option+Shift+Control</name>
+        <identifier>private.right_option_to_osc</identifier>
+        <autogen>
+            __KeyToKey__
+            KeyCode::F18,
+
+            KeyCode::OPTION_L,
+            ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+        </autogen>
+    </item>
+
+    <item>
+        <name>ESC key toggles capslock</name>
+        <appendix>As described.</appendix>
+
+        <identifier>private.capslock</identifier>
+
+        <autogen>__KeyToKey__
+            KeyCode::ESCAPE,
+            KeyCode::CAPSLOCK</autogen>
+    </item>
+
+    <item>
+        <name>Shifts to parens</name>
+        <appendix>As described.</appendix>
+
+        <identifier>private.shifts_to_parens</identifier>
+
+        <!-- shift = () -->
+        <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
+        <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_R</autogen>
+        <!-- shift rolls -->
+        <autogen>__KeyToKey__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
+    </item>
+
+    <!-- Input source virtual keycode definitions -->
+    <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SOGOU</name>
+        <inputsourceid_equal>com.sogou.inputmethod.sogou.pinyin</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+    <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_TRADITIONAL</name>
+        <inputsourceid_equal>com.apple.inputmethod.TCIM.Pinyin</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+    <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED</name>
+        <inputsourceid_equal>com.apple.inputmethod.SCIM.ITABC</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+    <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_US</name>
+        <inputsourceid_equal>com.apple.keylayout.US</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+
+    <item>
+        <name>Input switcher shortcuts</name>
+        <appendix>Hyper + comma: Traditional Chinese</appendix>
+        <appendix>Hyper + period: Simplified Chinese</appendix>
+        <appendix>Hyper + slash: US Extended</appendix>
+        <identifier>private.multilanguage_input</identifier>
+
+        <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_US, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
+
+        <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
+
+        <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_TRADITIONAL, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
+    </item>
+
+    <!-- Volume up (no overlay) -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_volume_up</name>
+        <url type="shell">
+            <![CDATA[ osascript -e "set volume output volume `expr $(osascript -e 'get output volume of (get volume settings)') + 5`" ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Volume down (no overlay) -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_volume_down</name>
+        <url type="shell">
+            <![CDATA[ osascript -e "set volume output volume `expr $(osascript -e 'get output volume of (get volume settings)') - 5`" ]]>
+        </url>
+    </vkopenurldef>
+
+    <item>
+        <name>Volume change without overlay</name>
+        <identifier>private.volume_change_no_overlay</identifier>
+
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::VOLUME_UP, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_volume_up
+        </autogen>
+
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_volume_down
+        </autogen>
+    </item>
+
+    <!-- Brightness up (no overlay) -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_brightness_up</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/brightness -m $(awk "BEGIN {print ($(echo "$(/usr/local/bin/brightness -l)" | grep 'display 0: brightness ' | sed 's/display 0: brightness //') + 0.05); exit}") ]]>
+        </url>
+    </vkopenurldef>
+
+    <!-- Brightness down (no overlay) -->
+    <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_brightness_down</name>
+        <url type="shell">
+            <![CDATA[ /usr/local/bin/brightness -m $(awk "BEGIN {print ($(echo "$(/usr/local/bin/brightness -l)" | grep 'display 0: brightness ' | sed 's/display 0: brightness //') - 0.05); exit}") ]]>
+        </url>
+    </vkopenurldef>
+
+    <item>
+        <name>Brightness change without overlay</name>
+        <identifier>private.brightness_change_no_overlay</identifier>
+
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::BRIGHTNESS_UP, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_brightness_up
+        </autogen>
+
+        <autogen>
+            __KeyToKey__
+            ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::NONE,
+            KeyCode::VK_OPEN_URL_SHELL_brightness_down
+        </autogen>
+    </item>
+</root>

@@ -1,0 +1,11 @@
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore-global
+[merge]
+	tool = vimdiff
+[push]
+	default = simple
+[color]
+	ui = auto
+[include]
+    path = ~/.gitprivate
