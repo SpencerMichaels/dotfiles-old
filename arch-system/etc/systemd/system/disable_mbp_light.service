@@ -1,0 +1,9 @@
+[Unit]
+Description=Disable MBP Headphone Light
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/hda-verb /dev/snd/hwC0D0 0x0e SET_POWER_STATE 0x03
+
+[Install]
+WantedBy=multi-user.target
