@@ -19,6 +19,10 @@ while read -r line ; do
             # Date and time
             clk="${line#???}"
             ;;
+        FWT*)
+            # Focused window title
+            title="${line#???}"
+            ;;
         IME*)
             # Input method
             ime="${line#???}"
@@ -31,18 +35,18 @@ while read -r line ; do
             # Network
             net="${line#???}"
             ;;
+        PAC*)
+            # Pacman update count
+            pac="${line#???}"
+            ;;
         VOL*)
             # Volume
             vol="${line#???}"
-            ;;
-        FWT*)
-            # Focused window title
-            title="${line#???}"
             ;;
         WMS*)
             # bspwm's state
             wmstate="${line#???}"
             ;;
     esac
-    printf "%s\n" "%{l} ${wmstate} ${title}%{c}%{r}${mpd} ${ime} ${bri} ${vol} ${net} ${bat} ${clk} "
+    printf "%s\n" "%{l} ${wmstate} ${title}%{c}%{r}${mpd} ${pac} ${ime} ${bri} ${vol} ${net} ${bat} ${clk} "
 done

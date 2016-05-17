@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ICON_NO_UPDATES="\uf0ad"
+ICON_HAS_UPDATES="\uf0ad"
+
+while true; do
+    num_updates=`pacman -Qu | wc -l`
+    if [ "$num_updates" -gt "0" ]; then
+        icon=$ICON_HAS_UPDATES
+        out="$icon $num_updates"
+    else
+        out="$ICON_NO_UPDATES --"
+    fi
+    echo -e "$out"
+    # TODO: Is this a safe way go about watching for db updates?
+    inotifywait -e modify -r /var/lib/pacman/sync/ > /dev/null 2>&1
+done
