@@ -14,7 +14,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-WIDGETS=(battery bspwm_state brightness clock fcitx focused_window_title mpd network pacman volume)
+WIDGETS=(battery bspwm_state brightness clock fcitx focused_window_title mpd network volume)
 for widget in ${WIDGETS[@]}; do
     # Kill existing instances
     pkill -f widgets/$widget

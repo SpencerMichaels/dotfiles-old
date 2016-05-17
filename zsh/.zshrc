@@ -1,11 +1,11 @@
 # Online help for zsh
 HELPDIR=/usr/local/share/zsh/helpfiles
 
-export ZSH=$HOME/.dotfiles
+export ZSH=$HOME/.zsh
 
 # Load zsh configuration files ------------------------------------------------
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($ZSH/*.zsh)
 
 # Load path files
 #for file in ${(M)config_files:#*/env.zsh}
