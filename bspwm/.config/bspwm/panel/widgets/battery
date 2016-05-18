@@ -10,9 +10,6 @@ ICON_25="\uf243"
 ICON_0="\uef244"
 ICON_BOLT="\uf0e7"
 
-#CHARGE_FILE=/sys/class/power_supply/BAT0/charge_now
-#STATUS_FILE=/sys/class/power_supply/BAT0/status
-
 while true; do
     bat_state=`acpi -b`
     bat_perc=`echo $bat_state | cut -d, -f2 | sed 's/[^0-9]//g'`

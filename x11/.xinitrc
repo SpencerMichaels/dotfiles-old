@@ -1,16 +1,16 @@
 # Adjust for HIDPI
-xrandr --dpi 144 &
+xrandr --dpi 144
 
 # Enable compositing
-compton -b --config ~/.config/compton.conf &
+compton -b --config ~/.config/compton.conf
 
 # Setup X resources
-xrdb merge ~/.Xresources &
+xrdb merge ~/.Xresources
 
 # Increase pointer speed
-xinput set-prop 11 280 1 &
+xinput set-prop 11 280 1
 # Disable tap-drag
-xinput set-prop 11 276 0 &
+xinput set-prop 11 276 0
 
 # Disable touchpad while typing (mtrack)
 dispad &
@@ -23,13 +23,14 @@ fcitx &
 
 # Swap ctrl and esc
 # any calls to xmodmap
-setxkbmap -option caps:swapescape &
-setxkbmap -option caps:ctrl_modifier &
-(xmodmap ~/.Xmodmap; xcape -e 'Caps_Lock=Escape') &
+setxkbmap -option caps:swapescape
+setxkbmap -option caps:ctrl_modifier
+xmodmap ~/.Xmodmap
+xcape -e 'Caps_Lock=Escape'
 
 # Shifts type parens
-xcape -e 'Shift_L=Shift_L|parenleft' &
-xcape -e 'Shift_R=Shift_R|parenright' &
+xcape -e 'Shift_L=Shift_L|parenleft'
+xcape -e 'Shift_R=Shift_R|parenright'
 
 # Set key repeat rate
 xset r rate 200 25 &
@@ -41,13 +42,20 @@ mpd &
 nitrogen --restore &
 
 # Set default mouse cursor
-xsetroot -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr
 
 # Start emacs daemon
 LC_CTYPE=zh_TW.UTF-8 emacs --daemon &
 
 # Increase pointer acceleration
-xset m 3/2 0 &
+xset m 3/2 0
+
+# Lock after 5 minutes of inactivity
+xset s 300 300
+xautolock -time 5 -locker "slock" -detectsleep &
+
+# Suspend after 15 minutes of inactivity
+xautolock -time 15 -locker "pm-suspend" -detectsleep &
 
 # Start bspwm
 sxhkd &

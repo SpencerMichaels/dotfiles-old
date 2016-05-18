@@ -1,6 +1,1 @@
 keycode 255 = Escape
-
-# Ctrl_L -> Hyper
-clear mod3
-keycode 37 = Hyper_L
-add mod3 = Hyper_L

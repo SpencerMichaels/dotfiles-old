@@ -1,18 +1,21 @@
 #!/bin/bash
 set -e
 
+source colors_zenburn
+
 ICON_NO_UPDATES="\uf0ad"
 ICON_HAS_UPDATES="\uf0ad"
 
 while true; do
     num_updates=`pacman -Qu | wc -l`
     if [ "$num_updates" -gt "0" ]; then
-        icon=$ICON_HAS_UPDATES
-        out="$icon $num_updates"
+        out="$ICON_HAS_UPDATES %{F$COL_BLUE}$num_updates%{F-}"
     else
-        out="$ICON_NO_UPDATES --"
+        out="$ICON_NO_UPDATES 0"
     fi
-    echo -e "$out"
-    # TODO: Is this a safe way go about watching for db updates?
-    inotifywait -e modify -r /var/lib/pacman/sync/ > /dev/null 2>&1
+    echo -e "PAC$out"
+
+    # Watch for deletion of db.lck, which happens when a database-updating
+    # pacman transaction finishes
+    inotifywait -e delete /var/lib/pacman 2>/dev/null | grep "DELETED db.lck" > /dev/null 2>&1
 done
