@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 ICON_NO_UPDATES="\uf0ad"
 ICON_HAS_UPDATES="\uf0ad"

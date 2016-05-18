@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 ICON_IM="\uf11c"
 
