@@ -48,14 +48,19 @@ xsetroot -cursor_name left_ptr
 LC_CTYPE=zh_TW.UTF-8 emacs --daemon &
 
 # Increase pointer acceleration
-xset m 3/2 0
+xset m 7/4 0
 
-# Lock after 5 minutes of inactivity
+# Lock and blank after 5 minutes of inactivity
 xset s 300 300
 xautolock -time 5 -locker "slock" -detectsleep &
+# Suspend after 15 mins
+xautolock -time 15 -locker "systemctl suspend" -detectsleep &
 
-# Suspend after 15 minutes of inactivity
-xautolock -time 15 -locker "pm-suspend" -detectsleep &
+# Hide the mouse cursor when not in use
+unclutter &
+
+# Adjust color tone at night
+redshift &
 
 # Start bspwm
 sxhkd &

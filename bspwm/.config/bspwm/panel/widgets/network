@@ -33,7 +33,7 @@ else
 fi
 
 (echo $first_message; \
-nmcli m) | while read -r line;
+nmcli device monitor) | while read -r line;
 do
     if echo $line | grep $INTERFACE > /dev/null; then
         msg=`echo $line | sed 's/.*: //g'`
@@ -54,11 +54,11 @@ do
                 ;;
             "deactivating")
                 kill $MONITOR_PID
-                wait $MONITOR_PID 2>/dev/null
+                wait
                 echo -e "NET$ICON_CONNECTED_NO_INTERNET ..."
                 ;;
             "disconnected")
-                echo -e "NET$ICON_NO_CONNECTION off"
+                echo -e "NET$ICON_NO_CONNECTION --"
                 ;;
             *)
                 ;;

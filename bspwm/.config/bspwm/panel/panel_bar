@@ -36,8 +36,14 @@ while read -r line ; do
             net="${line#???}"
             ;;
         PAC*)
-            # Pacman update count
+            # Pacman update count. The widget doesn't appear if there are no
+            # Pacman updates, so we don't put a space after it in the panel
+            # to avoid extra blank space in that case. If there are updates,
+            # we add the space back.
             pac="${line#???}"
+            if [ ! -z "$pac" ]; then
+                pac="$pac "
+            fi
             ;;
         VOL*)
             # Volume
@@ -48,5 +54,5 @@ while read -r line ; do
             wmstate="${line#???}"
             ;;
     esac
-    printf "%s\n" "%{l} ${wmstate} ${title}%{c}%{r}${mpd} ${pac} ${ime} ${bri} ${vol} ${net} ${bat} ${clk} "
+    printf "%s\n" "%{l} ${wmstate} ${title}%{c}%{r}${mpd} ${pac}${ime} ${bri} ${vol} ${net} ${bat} ${clk} "
 done

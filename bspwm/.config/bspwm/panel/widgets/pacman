@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 source colors_zenburn
 
@@ -11,7 +10,8 @@ while true; do
     if [ "$num_updates" -gt "0" ]; then
         out="$ICON_HAS_UPDATES %{F$COL_BLUE}$num_updates%{F-}"
     else
-        out="$ICON_NO_UPDATES 0"
+        #out="$ICON_NO_UPDATES 0"
+        out=""
     fi
     echo -e "PAC$out"
 
