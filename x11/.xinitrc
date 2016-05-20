@@ -50,11 +50,13 @@ LC_CTYPE=zh_TW.UTF-8 emacs --daemon &
 # Increase pointer acceleration
 xset m 7/4 0
 
-# Lock and blank after 5 minutes of inactivity
+# Blank after t minutes
 xset s 300 300
-xautolock -time 5 -locker "slock" -detectsleep &
-# Suspend after 15 mins
-xautolock -time 15 -locker "systemctl suspend" -detectsleep &
+          # Lock after 5 minutes
+xautolock -time 5 -locker "~/.scripts/lock" \
+          # Suspend after 15 minutes
+          -killtime 15 -killer "systemctl suspend" \
+          -detectsleep &
 
 # Hide the mouse cursor when not in use
 unclutter &

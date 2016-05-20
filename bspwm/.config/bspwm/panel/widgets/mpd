@@ -11,7 +11,7 @@ TITLE_LEN=28
 ARTIST_LEN=13
 
 # Do a fake echo when the script starts to force an update
-(echo "player"; sleep 1; mpc idleloop player) | while read -r line; do
+(echo "player"; mpc idleloop player) | while read -r line; do
     title=`mpc current -f %title%`
 
     state=`test -n "$title" && echo $title|| echo "stopped"`
