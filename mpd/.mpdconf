@@ -475,14 +475,14 @@ input {
 ###############################################################################
 
 audio_output {
-    type "alsa"
+    type "openal"
     name "Audio"
     mixer_type "software"
 }
 
-audio_output {
-    type "fifo"
-    name "MPDfifo"
-    path "/tmp/mpd.fifo"
-    format "44100:16:2"
-}
+#audio_output {
+    #type "fifo"
+    #name "MPDfifo"
+    #path "/tmp/mpd.fifo"
+    #format "44100:16:2"
+#}

@@ -31,6 +31,7 @@ BREW_PACKAGES=(
     "ncmpcpp --with-clock --with-visualizer"
     python3
     reattach-to-user-namespace
+    stow
     tmux
     wget
     zsh

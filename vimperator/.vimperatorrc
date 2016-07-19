@@ -1,3 +1,9 @@
 set gui=none,tabs
 colorscheme zenburn
 set focuscontent
+set runtimepath+=~/.vimperator/plugins
+set urlseparator=
+
+" Switch colon and semicolon
+nnoremap ; :
+nnoremap : ;

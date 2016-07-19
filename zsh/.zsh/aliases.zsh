@@ -1,4 +1,3 @@
-alias cl='cd $@ && ls'
 function mkcd
 {
     dir="$*"
@@ -13,8 +12,13 @@ alias wolfram='/Applications/Mathematica.app/Contents/MacOS/WolframKernel'
 alias urldec='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlenc='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
-#alias st='it2_switch_theme'
-
+alias cl='cd $@ && ls'
 alias cls='clear; ls'
-
 alias ec='emacsclient --no-wait'
+alias cs='mpc | head -1'
+
+alias beep='afplay /System/Library/Sounds/Ping.aiff'
+
+alias avrd='avrdude -P usb -c dragon_jtag -p usb1287'
+
+alias vim='nvim'

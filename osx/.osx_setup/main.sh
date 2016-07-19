@@ -1,16 +1,13 @@
 #!/bin/bash
 # Runs all the other setup scripts in this folder.
 
-# Ensure paths are setup first
 set -e
 
-#echo "1. Linking dotfiles."
-#$SETUP_SCRIPTS_DIR/link.sh
-# TODO: Use stow instead
-exit 1
-
-echo "2. Setting up Homebrew."
+echo "1. Setting up Homebrew."
 /bin/bash brew.sh
+
+echo "2. Linking dotfiles."
+$SETUP_SCRIPTS_DIR/link.sh
 
 echo "3. Changing shell to zsh (needs root password)."
 if [ -f /usr/local/bin/zsh ]; then
