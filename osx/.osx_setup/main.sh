@@ -29,4 +29,7 @@ echo "6. Setting sane defaults for OSX."
 echo "7. Setting sane defaults for apps"
 /bin/bash apps.sh
 
+echo "8. Setting up iTerm visor."
+/bin/bash visor.sh
+
 exit 0

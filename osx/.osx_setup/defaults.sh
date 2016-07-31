@@ -8,9 +8,6 @@ set -e
 echo "- Disable shake to locate cursor."
 defaults write CGDisableCursorLocationMagnification -bool YES
 
-echo "- Start MPD by default."
-ln -sfv /usr/local/opt/mpd/*.plist ~/Library/LaunchAgents
-
 echo "- Disable spell check."
 defaults write NSAutomaticSpellingCorrectionEnabled -bool false
 
@@ -58,7 +55,7 @@ defaults write com.apple.dock autohide -bool true
 echo "- Show POSIX path in Finder."
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 
-echo "- Minimize windows into their application’s icon, use scale effect."
+echo "- Minimize windows into their application’s icon; use scale effect."
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock mineffect -string "scale"
 

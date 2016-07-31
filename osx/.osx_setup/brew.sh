@@ -21,15 +21,14 @@ BREW_TAPS=(
 BREW_PACKAGES=(
     ack
     autojump
-    "caskroom/cask/brew-cask"
     ctags
     duti
     grc
-    "macvim --with-override-system-vim"
     mpc
     "mpd --with-flac --with-libmms"
     "ncmpcpp --with-clock --with-visualizer"
-    python3
+    neovim
+    neovim-dot-app
     reattach-to-user-namespace
     stow
     tmux
@@ -41,12 +40,11 @@ CASK_PACKAGES=(
     bettertouchtool
     hammerspoon
     google-chrome
-    iterm2-beta
+    iterm2
     karabiner
     seil
     spectacle
     the-unarchiver
-    transmission
 )
 
 echo "- Tapping repositories."
