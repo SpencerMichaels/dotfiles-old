@@ -37,11 +37,10 @@ BREW_PACKAGES=(
 )
 CASK_PACKAGES=(
     alfred
-    bettertouchtool
-    hammerspoon
     google-chrome
     iterm2
     karabiner
+    mactex
     seil
     spectacle
     the-unarchiver

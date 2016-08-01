@@ -11,6 +11,7 @@ export PATH="$HOME/devtools/android-sdks/platform-tools:$PATH"
 # Brewed Mac Emacs
 export PATH="/usr/local/opt/emacs-mac/bin:$PATH"
 
+# Neovim runtime
 export VIMRUNTIME="/usr/local/opt/neovim/share/nvim/runtime"
 
 # The current version of gpg-agent causes errors in ssh-agent, so the following
