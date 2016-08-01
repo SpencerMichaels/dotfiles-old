@@ -37,7 +37,7 @@ BREW_PACKAGES=(
 )
 CASK_PACKAGES=(
     alfred
-    google-chrome
+    firefox
     iterm2
     karabiner
     mactex
