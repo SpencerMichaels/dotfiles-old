@@ -1,9 +1,10 @@
 #!/bin/sh
 # Installs homebrew and a few packages needed for basic work
 
-# Ensure paths are setup first
 set -e
-./pathcheck.sh
+
+# Ensure paths are setup first
+source paths.sh
 
 # Check if Homebrew exists
 if [ ! $(which brew) ] && [ "$(uname)" = "Darwin" ]
@@ -16,6 +17,7 @@ fi
 
 # Packages/repos to install/tap
 BREW_TAPS=(
+    caskroom/fonts      # For Hack font
     caskroom/versions   # For iterm2-beta and other such alternate app versions
 )
 BREW_PACKAGES=(
@@ -27,8 +29,7 @@ BREW_PACKAGES=(
     mpc
     "mpd --with-flac --with-libmms"
     "ncmpcpp --with-clock --with-visualizer"
-    neovim
-    neovim-dot-app
+    "neovim/neovim/neovim"
     reattach-to-user-namespace
     stow
     tmux
@@ -38,6 +39,7 @@ BREW_PACKAGES=(
 CASK_PACKAGES=(
     alfred
     firefox
+    font-hack
     iterm2
     karabiner
     mactex

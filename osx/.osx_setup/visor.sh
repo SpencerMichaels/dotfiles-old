@@ -1,9 +1,7 @@
 #!/bin/bash
 # Sets up a second iTerm application that can be run
 
-# Ensure paths are setup first
 set -e
-
 
 BID="com.googlecode.iterm2"
 
@@ -13,6 +11,11 @@ VISOR="$HOME/Applications/iTermVisor.app"
 if [ -d "$VISOR" ]; then
     echo '- Found older version, deleting.'
     rm -r "$VISOR"
+fi
+
+if [ ! -d "$HOME/Applications" ]; then
+    echo '- Creating local Applications folder.'
+    mkdir "$HOME/Applications"
 fi
 echo '- Copying current iTerm.'
 cp -r "$ITERM" "$VISOR"

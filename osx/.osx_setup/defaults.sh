@@ -1,9 +1,10 @@
 #!/bin/bash
 # Sets decent defaults for OSX
 
-# Ensure paths are setup first
 set -e
-./pathcheck.sh
+
+# Ensure paths are setup first
+source paths.sh
 
 echo "- Disable shake to locate cursor."
 defaults write CGDisableCursorLocationMagnification -bool YES
@@ -70,3 +71,15 @@ defaults write com.apple.menuextra.clock DateFormat "EEE MMM d  h:mm a"
 
 echo "- Enable tap-to-click on login screen (needs root password)."
 sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+
+echo "- Enable tap-to-click."
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+
+echo "- Disable volume/brightness/keyboard-backlight overlays."
+launchctl unload -wF /System/Library/LaunchAgents/com.apple.BezelUI.plist
+
+echo "- Show battery percentage."
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
+echo "- Setting system language to Traditional Chinese（繁體中文）."
+sudo languagesetup -langspec zh-Hant

@@ -1,9 +1,10 @@
 #!/bin/bash
 # Sets up Hammerspoon and its addons
 
-# Ensure paths are setup first
 set -e
-./pathcheck.sh
+
+# Ensure paths are setup first
+source paths.sh
 
 echo "- Installing undocumented Spaces functionality."
 echo "  - Installing dependencies."

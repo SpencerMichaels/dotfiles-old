@@ -1,26 +1,17 @@
 #!/bin/bash
-# Installs Vim addons through Vundle.
+# Installs NeoVim addons through Vim-Plug.
 
-# Ensure paths are setup first
 set -e
-./pathcheck.sh
 
-# Check that the required paths are set up first.
-if [ -z "$DOTFILES_ROOT_DIR" ] && \
-   [ -z "$SETUP_SCRIPTS_DIR" ] && \
-   [ -z "$DOTFILES_OSX_DIR" ]
-then
-    echo "Paths not set up. Run this script via setup.sh in the root dotfiles"
-    echo "folder or source paths.sh manually."
-    exit 1
-fi
+echo "- Installing Python 2/3 + Python support."
+echo "  - Python 2/3"
+brew  install python python3
+echo "  - Python 2 provider"
+pip2 install --upgrade neovim
+echo "  - Python 3 provider"
+pip3 install --upgrade neovim
 
-
-echo "- Cloning Vundle."
-git clone https://github.com/VundleVim/Vundle.vim.git \
-    $DOTFILES_ROOT_DIR/vim/vim.symlink/bundle/Vundle.vim
-
-echo "- Installing Vundle plugins."
-vim +PluginInstall +qall
+echo "- Installing plugins."
+nvim +PlugInstall +qall
 
 exit 0

@@ -1,9 +1,10 @@
 #!/bin/bash
 # Sets up US English and Chinese input sources
 
-# Ensure paths are setup first
 set -e
-./pathcheck.sh
+
+# Ensure paths are setup first
+source paths.sh
 
 # Clear existing input sources
 echo "- Clearing input sources."

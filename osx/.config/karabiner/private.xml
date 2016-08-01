@@ -130,7 +130,7 @@
     </item>
 
     <item>
-        <name>Remap Control_L to Command+Option+Shift+Control</name>
+        <name>Remap Control_L to Hyper (Command+Option+Shift+Control)</name>
         <identifier>private.left_control_to_cosc</identifier>
         <autogen>
             __KeyToKey__
@@ -146,7 +146,7 @@
         <identifier>private.right_option_to_osc</identifier>
         <autogen>
             __KeyToKey__
-            KeyCode::F18,
+            KeyCode::F17,
 
             KeyCode::OPTION_L,
             ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
@@ -192,31 +192,42 @@
         <inputsourceid_equal>com.apple.inputmethod.SCIM.ITABC</inputsourceid_equal>
     </vkchangeinputsourcedef>
     <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_ZHUYIN</name>
+        <inputsourceid_equal>com.apple.inputmethod.TCIM.Zhuyin</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+    <vkchangeinputsourcedef>
         <name>KeyCode::VK_CHANGE_INPUTSOURCE_US</name>
         <inputsourceid_equal>com.apple.keylayout.US</inputsourceid_equal>
     </vkchangeinputsourcedef>
 
     <item>
         <name>Input switcher shortcuts</name>
+        <appendix>Hyper + M: Zhuyin</appendix>
         <appendix>Hyper + comma: Traditional Chinese</appendix>
         <appendix>Hyper + period: Simplified Chinese</appendix>
         <appendix>Hyper + slash: US Extended</appendix>
         <identifier>private.multilanguage_input</identifier>
 
-        <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-            KeyCode::VK_CHANGE_INPUTSOURCE_US, KeyCode::VK_WAIT_10MS,
-            KeyCode::F18,
-            Option::NOREPEAT</autogen>
-
         <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED, KeyCode::VK_WAIT_10MS,
+            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_ZHUYIN, KeyCode::VK_WAIT_10MS,
             KeyCode::F18,
             Option::NOREPEAT</autogen>
 
         <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_US, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
+
+        <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
             KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_TRADITIONAL, KeyCode::VK_WAIT_10MS,
             KeyCode::F18,
             Option::NOREPEAT</autogen>
+
+        <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
+
     </item>
 
     <!-- Volume up (no overlay) -->

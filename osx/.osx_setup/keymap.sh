@@ -3,26 +3,24 @@
 #   - Caps lock to esc/ctrl
 #   - Ctrl to hyper (shift+ctrl+cmd+alt)
 
-# Ensure paths are setup first
 set -e
-./pathcheck.sh
+
+# Ensure paths are setup first
+source paths.sh
 
 echo "- Setting Seil to force capslock to send F19."
 /Applications/Seil.app/Contents/Library/bin/seil set keycode_capslock 80
 
 echo "- Linking Karabiner private.xml."
-if [ -f $HOME/Library/Application\ Support/Karabiner/private.xml ]; then
-    # Delete the file if it exists already -- Karabiner may have created it
-    # automatically
-    rm $HOME/Library/Application\ Support/Karabiner/private.xml
-fi
-# Create the directory manually in case Karabiner hasn't been started yet
 mkdir -p ~/Library/Application\ Support/Karabiner/
-ln -s -h ${DOTFILES_OSX_DIR}/karabiner_private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
+cp karabiner_private_stub.xml $HOME/Library/Application\ Support/Karabiner/private.xml
 
 echo "- Applying Karabiner configuration."
 /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
-${DOTFILES_OSX_DIR}/karabiner_config.sh
+karabiner_config.sh
+
+echo "- Applying Seil configuration."
+seil_config.sh
 
 echo "- Adding F18 shortcut to switch input methods."
 # This array of integers, added to the plist below, sets the "switch to next
@@ -35,16 +33,20 @@ HOTKEYS_PLIST="$HOME/Library/Preferences/com.apple.symbolichotkeys.plist"
 /usr/libexec/PlistBuddy -c "add :AppleSymbolicHotKeys:61:value:parameters: integer 0" "$HOTKEYS_PLIST"
 
 echo "- Changing modifier key behavior."
-echo "  - Retrieving internal keyboard IDs."
 # I'm not sure this is the best way to get these values. It seems to work, though.
 IDS=$(ioreg -p IOUSB -c IOUSBDevice -n "Apple Internal Keyboard / Trackpad" | grep -e idVendor -e idProduct)
 echo "$IDS"
 ID_PRODUCT=$(echo "$IDS" | sed '1q;d' | sed 's/[^0-9]*//g')
 ID_VENDOR=$(echo "$IDS" | sed '2q;d' | sed 's/[^0-9]*//g')
+DEFAULTS_DOMAIN="com.apple.keyboard.modifiermapping.${ID_VENDOR}-${ID_PRODUCT}-0"
 
-# Clear out the existing defaults for modifier key behavior
-defaults -currentHost delete -g com.apple.keyboard.modifiermapping.${ID_VENDOR}-${ID_PRODUCT}-0
-defaults -currentHost write -g com.apple.keyboard.modifiermapping.${ID_VENDOR}-${ID_PRODUCT}-0 -array
+# Clear out any existing defaults for modifier key behavior
+if defaults -currentHost read -g com.apple.keyboard.modifiermapping.${ID_VENDOR}-${ID_PRODUCT}-0 > /dev/null;
+then
+    echo "  - Cleared existing defaults."
+    defaults -currentHost delete -g com.apple.keyboard.modifiermapping.${ID_VENDOR}-${ID_PRODUCT}-0
+fi
+defaults -currentHost write -g $DEFAULTS_DOMAIN -array
 
 # Caps lock to CTRL
 echo "  - Setting capslock to CTRL."
