@@ -1,7 +1,7 @@
 # oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
-plugins=(osx brew sudo git autojump last-working-dir)
+plugins=(autojump brew git last-working-dir npm osx sudo)
 
 # Plugin: tmux ----------------------------------------------------------------
 #ZSH_TMUX_AUTOSTART=false

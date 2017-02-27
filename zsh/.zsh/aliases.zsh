@@ -19,6 +19,12 @@ alias cs='mpc | head -1'
 
 alias beep='afplay /System/Library/Sounds/Ping.aiff'
 
-alias avrd='avrdude -P usb -c dragon_jtag -p usb1287'
-
 alias vim='nvim'
+
+alias vme='docker exec -it nSERVER /bin/bash'
+alias vms='docker-compose up -d'
+alias vmk='docker-compose down'
+alias vmr='docker-compose down && docker-compose up -d'
+alias vml='docker logs -f nSERVER'
+
+alias iclpwifi='echo L05S21075 | pbcopy'
