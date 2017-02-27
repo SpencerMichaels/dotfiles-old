@@ -5,9 +5,9 @@ preferred configurations automatically (but see the disclaimer below).
 
 To use, run the following:
 ```
-    $ git clone https://github.com/sxmichaels/dotfiles ~/.dotfiles
-    $ cd ~/.dotfiles/osx/.osx_setup
-    $ ./main.sh
+git clone https://github.com/sxmichaels/dotfiles ~/.dotfiles
+cd ~/.dotfiles/osx/.osx_setup
+./main.sh
 ```
 
 ## OSX setup scripts
