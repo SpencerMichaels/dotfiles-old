@@ -33,3 +33,5 @@ done
 source $ZSH/oh-my-zsh.sh
 
 unset config_files
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

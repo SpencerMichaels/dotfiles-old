@@ -24,7 +24,7 @@ echo '- Modifying plist.'
 PLIST="$VISOR/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier ${BID}visor" "$PLIST"
 /usr/libexec/PlistBuddy -c "Set :CFBundleName iTerm2Visor" "$PLIST"
-/usr/libexec/PlistBuddy -c "Add :LSUIElement string 1" "$PLIST"
+#/usr/libexec/PlistBuddy -c "Add :LSUIElement string 1" "$PLIST"
 
 echo '- Setting defaults.'
 defaults write com.googlecode.iterm2visor PrefsCustomFolder \

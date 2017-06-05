@@ -1,11 +1,15 @@
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore-global
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
+[mergetool "nvimdiff"]
+    cmd = "nvim -d $LOCAL $BASE $REMOTE $MERGED"
 [push]
 	default = simple
 [color]
 	ui = auto
 [include]
     path = ~/.gitprivate
+[mergetool]
+	keepBackup = false

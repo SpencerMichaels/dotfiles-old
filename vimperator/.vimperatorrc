@@ -1,4 +1,5 @@
-set gui=none,tabs
+#set gui=none,tabs
+set gui=none,addons,tabs,navigation
 colorscheme zenburn
 set focuscontent
 set runtimepath+=~/.vimperator/plugins
@@ -7,3 +8,6 @@ set urlseparator=
 " Switch colon and semicolon
 nnoremap ; :
 nnoremap : ;
+
+" Fix FF 49.01 bug
+js services.services.autoCompleteSearch.class_="@mozilla.org/autocomplete/search;1?name=unifiedcomplete"

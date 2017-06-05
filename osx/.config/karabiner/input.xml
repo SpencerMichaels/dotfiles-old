@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<root>
+    <!-- Input source virtual keycode definitions -->
+    <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SOGOU</name>
+        <inputsourceid_equal>com.sogou.inputmethod.sogou.pinyin</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+    <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_TRADITIONAL</name>
+        <inputsourceid_equal>com.apple.inputmethod.TCIM.Pinyin</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+    <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED</name>
+        <inputsourceid_equal>com.apple.inputmethod.SCIM.ITABC</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+    <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_ZHUYIN</name>
+        <inputsourceid_equal>com.apple.inputmethod.TCIM.Zhuyin</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+    <vkchangeinputsourcedef>
+        <name>KeyCode::VK_CHANGE_INPUTSOURCE_US</name>
+        <inputsourceid_equal>com.apple.keylayout.US</inputsourceid_equal>
+    </vkchangeinputsourcedef>
+</root>

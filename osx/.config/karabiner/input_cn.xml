@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<root>
+    <include path="{{ ENV_HOME }}/.config/karabiner/input.xml" />
+
+    <item>
+        <name>Input switcher shortcuts</name>
+        <appendix>Hyper + M: Zhuyin</appendix>
+        <appendix>Hyper + comma: Traditional Chinese</appendix>
+        <appendix>Hyper + period: Simplified Chinese</appendix>
+        <appendix>Hyper + slash: US Extended</appendix>
+        <identifier>private.multilanguage_input</identifier>
+
+        <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_ZHUYIN, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
+
+        <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_US, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
+
+        <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_TRADITIONAL, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
+
+        <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::VK_CHANGE_INPUTSOURCE_CHINESE_SIMPLIFIED, KeyCode::VK_WAIT_10MS,
+            KeyCode::F18,
+            Option::NOREPEAT</autogen>
+
+    </item>
+</root>
