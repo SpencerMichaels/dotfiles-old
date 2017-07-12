@@ -4,27 +4,32 @@ function mkcd
     mkdir -p "$dir" && cd "$dir"
 }
 
+alias beep='afplay /System/Library/Sounds/Ping.aiff'
 alias cask='brew cask'
-alias oh='open .' # Open the current directory in Finder
-
-alias wolfram='/Applications/Mathematica.app/Contents/MacOS/WolframKernel'
-
+alias cls='clear; ls'
+alias oh='open .'
 alias urldec='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlenc='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
-
-alias cl='cd $@ && ls'
-alias cls='clear; ls'
-alias ec='emacsclient --no-wait'
-alias cs='mpc | head -1'
-
-alias beep='afplay /System/Library/Sounds/Ping.aiff'
-
 alias vim='nvim'
 
-alias vme='docker exec -it nSERVER /bin/bash'
-alias vms='docker-compose up -d'
-alias vmk='docker-compose down'
-alias vmr='docker-compose down && docker-compose up -d'
-alias vml='docker logs -f nSERVER'
+# CLI knox replacement
+alias hdc="hdiutil create -size 1g -encryption AES-256 -type SPARSE -fs HFS+"
+alias hda="hdiutil attach"
+alias hdd="hdiutil detach"
+alias hdr="diskutil rename"
 
-alias iclpwifi='echo L05S21075 | pbcopy'
+# pretty print things
+alias pp_json="python -m json.tool"
+alias pp_js="js-beautify"
+alias pp_xml="xmllint --format -"
+
+# Enable modern node.js features
+alias node="node --harmony"
+alias le="exa"
+
+# TODO: What does this do?
+# alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+
+# These are custom vim mode key bindings
+bindkey -M vicmd 'H' vi-beginning-of-line
+bindkey -M vicmd 'L' vi-end-of-line
