@@ -3,6 +3,6 @@
     let g:maplocalleader='\\'   " Local leader = \
 
     " Enter command mode with ; and back-search with ;;
-    map ; :
-    noremap ;; ;
+    "map ; :
+    "noremap ;; ;
 " }}}

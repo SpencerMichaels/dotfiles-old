@@ -1,3 +1,34 @@
+" INITIALIZATION {{{
+    call plug#begin('~/.config/nvim/plugged')
+
+    Plug 'easymotion/vim-easymotion'
+    Plug 'jnurmine/Zenburn'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'lervag/vimtex'
+
+    "Plug 'jaawerth/neomake-local-eslint-first'
+    "Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+    "Plug 'neomake/neomake', { 'on': 'Neomake' }
+    "Plug 'Shougo/unite.vim'
+    "
+    Plug 'rust-lang/rust.vim'
+    Plug 'Shougo/neosnippet'
+    Plug 'Shougo/neosnippet-snippets'
+    Plug 'tpope/vim-fugitive'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    "Plug 'Shougo/deoplete.nvim'
+    "Plug 'zchee/deoplete-clang'
+    "Plug 'zchee/deoplete-jedi'
+    "Plug 'carlitux/deoplete-ternjs'
+
+    Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+    Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --racer-completer', 'frozen': 1 }
+
+    call plug#end()
+" }}}
+
 " AIRLINE {{{
     let g:airline_powerline_fonts = 1       " Use Powerline fonts
     let g:airline_theme='zenburn'           " Zenburn theme
@@ -39,4 +70,6 @@
     let g:ycm_autoclose_preview_window_after_insertion=1
     " Don't ask for confirmation to load .ycm_extra_conf.py
     let g:ycm_confirm_extra_conf=0
+    " Rust source files
+    let g:ycm_rust_src_path=system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src/'
 " }}}
