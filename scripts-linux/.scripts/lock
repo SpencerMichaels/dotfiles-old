@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# Blank time to restore to after slock exits
-#DEFAULT_BLANK_TIME_SEC=`xset q |
-#    sed -n '/.*Standby.*Suspend.*Off.*/p' |
-#    sed 's/.*Off://g; s/[ \t]//g'`
-
-sxlock -f "-misc-hack-medium-r-normal--32-*-0-0-m-0-ascii-0"
