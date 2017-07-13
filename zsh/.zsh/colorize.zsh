@@ -11,13 +11,6 @@ alias less="less -R"
 # alias ls="ls -G"
 # alias ls="ls --color"
 
-# ag/fzf helpers
-alias strip_after_colon="awk -F':' '{print \$1}'"
-alias strip_color_codes="perl -pe 's/\e\[?.*?[\@-~]//g'"
-
-# better fzf functions
-alias get_ag_files="strip_after_colon | strip_color_codes | uniq"
-
 # TODO: Figure out!
 typeset -Ag FX FG BG
 

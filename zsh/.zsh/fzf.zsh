@@ -11,7 +11,7 @@ afv() {
         return
     else
         fzf --ansi -m | strip_color_codes | awk -F':' '{print ":e "$1"|:"$2i"|"}' | tr -d '\n' |
-        xargs -I {} bash -c '</dev/tty vim -c "{} | redraw"' ignoreme
+        xargs -I {} bash -c '</dev/tty nvim -c "{} | redraw"' ignoreme
     fi
 }
 
@@ -21,7 +21,7 @@ va() {
         return
     else
         strip_color_codes | awk -F':' '{print ":e "$1"|:"$2i"|"}' | tr -d '\n' |
-        xargs -I {} bash -c '</dev/tty vim -c "{} | redraw"' ignoreme
+        xargs -I {} bash -c '</dev/tty nvim -c "{} | redraw"' ignoreme
     fi
 }
 
