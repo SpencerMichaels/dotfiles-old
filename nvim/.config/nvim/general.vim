@@ -37,8 +37,9 @@ set cursorline
 " Don't add a space when joining a line
 set nojoinspaces
 " Super fast key response times
-set ttimeout
-set ttimeoutlen=100
+" TODO: This seems to interfere with tmux
+"set ttimeout
+"set ttimeoutlen=100
 " Show line numbers
 set number
 " Find tags file
