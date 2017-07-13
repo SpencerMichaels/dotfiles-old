@@ -1,37 +1,40 @@
 " INITIALIZATION {{{
+    filetype off
+    set rtp+=/usr/local/opt/fzf
+
     call plug#begin('~/.config/nvim/plugged')
 
     Plug 'easymotion/vim-easymotion'
-    Plug 'jnurmine/Zenburn'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'lervag/vimtex'
 
-    "Plug 'jaawerth/neomake-local-eslint-first'
-    "Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
-    "Plug 'neomake/neomake', { 'on': 'Neomake' }
-    "Plug 'Shougo/unite.vim'
-    "
-    Plug 'rust-lang/rust.vim'
-    Plug 'Shougo/neosnippet'
-    Plug 'Shougo/neosnippet-snippets'
     Plug 'tpope/vim-fugitive'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-speeddating'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-unimpaired'
 
-    "Plug 'Shougo/deoplete.nvim'
-    "Plug 'zchee/deoplete-clang'
-    "Plug 'zchee/deoplete-jedi'
-    "Plug 'carlitux/deoplete-ternjs'
-
-    Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'wellle/targets.vim'
+    Plug 'triglav/vim-visual-increment'
+    Plug 'vim-scripts/bufkill.vim'
+    Plug 'ap/vim-buftabline'
+    Plug 'kien/rainbow_parentheses.vim'
+    Plug 'junegunn/fzf.vim'
     Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --racer-completer', 'frozen': 1 }
 
-    call plug#end()
-" }}}
+    " Language-specific
+    Plug 'rust-lang/rust.vim'
+    Plug 'lervag/vimtex'
+    Plug 'justinmk/vim-syntax-extra'
+    " Plug 'keith/swift.vim'
+    " Plug 'tmux-plugins/vim-tmux'
 
-" AIRLINE {{{
-    let g:airline_powerline_fonts = 1       " Use Powerline fonts
-    let g:airline_theme='zenburn'           " Zenburn theme
+    "Colors
+    Plug 'jnurmine/Zenburn'
+    Plug 'morhetz/gruvbox'
+
+    call plug#end()
+
+    filetype plugin indent on
 " }}}
 
 " LATEX {{{
@@ -52,19 +55,6 @@
     let g:tex_conceal='adgm'                " Prettify Unicode
 " }}}
 
-" NEOMAKE {{{
-    " Use ESLint for JS linting
-    let g:neomake_javascript_enabled_makers = ['eslint']
-
-    " Syntax-check the current file after every write
-    "autocmd BufWritePost * Neomake
-" }}}
-
-" NEOSNIPPET {{{
-    " Set config directory
-    let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
-" }}}
-
 " YOUCOMPLETEME {{{
     " Autoclose the function preview window after choosing a completion option
     let g:ycm_autoclose_preview_window_after_insertion=1
@@ -72,4 +62,50 @@
     let g:ycm_confirm_extra_conf=0
     " Rust source files
     let g:ycm_rust_src_path=system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src/'
+" }}}
+
+" FZF {{{
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+" }}}
+
+" RAINBOW PARENTHESES {{{
+	" TODO: Fix this
+	" let g:rbpt_colorpairs = [
+	"     \ ['brown',       'RoyalBlue3'],
+	"     \ ['Darkblue',    'SeaGreen3'],
+	"     \ ['darkgray',    'DarkOrchid3'],
+	"     \ ['darkgreen',   'firebrick3'],
+	"     \ ['darkcyan',    'RoyalBlue3'],
+	"     \ ['darkred',     'SeaGreen3'],
+	"     \ ['darkmagenta', 'DarkOrchid3'],
+	"     \ ['brown',       'firebrick3'],
+	"     \ ['gray',        'RoyalBlue3'],
+	"     \ ['darkmagenta', 'DarkOrchid3'],
+	"     \ ['Darkblue',    'firebrick3'],
+	"     \ ['darkgreen',   'RoyalBlue3'],
+	"     \ ['darkcyan',    'SeaGreen3'],
+	"     \ ['darkred',     'DarkOrchid3'],
+	"     \ ['red',         'firebrick3'],
+	"     \ ]
+
+	augroup rainbow
+		au VimEnter * RainbowParenthesesToggle
+		au Syntax * RainbowParenthesesLoadRound
+		au Syntax * RainbowParenthesesLoadSquare
+		au Syntax * RainbowParenthesesLoadBraces
+	augroup END
 " }}}

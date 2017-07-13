@@ -1,53 +1,75 @@
-" COLORS & FONT {{{
-    colors zenburn                      " Use Zenburn colorscheme
-    if has("nvim")
-        set termguicolors               " Use true colors in the terminal
-    endif
-    if exists("neovim_dot_app")
-        call MacSetFont("Hack", 12)     " Use 12pt Hack for Neovim.app font
-    endif
-" }}}
+" Set color scheme
+colorscheme gruvbox
+set background=dark
+set termguicolors
 
-" DISPLAY {{{
-    set number                  " Show line numbers
-    set cursorline              " Highlight current line
-" }}}
+" Buftabline colors
+hi BufTabLineActive ctermfg=DarkGreen ctermbg=Black
+hi BufTabLineCurrent ctermfg=DarkBlue ctermbg=Black
+hi BufTabLineHidden ctermbg=Gray ctermfg=Black
+hi BufTabLineFill ctermbg=Gray ctermfg=Gray
 
-" MOVEMENT {{{
-    " Move vertically by visual line
-    nnoremap j gj
-    nnoremap k gk
+" Always show statusline
+set laststatus=2
+" Disable swap files
+set nobackup
+set nowritebackup
+set noswapfile
+" Smart tab defaults
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+" Auto indenting
+set autoindent
+set smarttab
+" yank / paste to OS clipboard
+set clipboard=unnamed
+" mouse
+set mouse=a
+" Case insensitive searching
+set incsearch
+set ignorecase
+set smartcase
+" Make backspace work as indented
+set backspace=indent,eol,start
+" Highlight current line
+set cursorline
+" Don't add a space when joining a line
+set nojoinspaces
+" Super fast key response times
+set ttimeout
+set ttimeoutlen=100
+" Show line numbers
+set number
+" Find tags file
+set tags=tags;/
+" set tags=./tags,tags;
+" Fixes weird dinging
+set visualbell
+" Enable line wrapping and put && at start of linebreak
+set wrap
+"set showbreak=&&
+set linebreak
+set breakindent
 
-    " Disable selecting the mouse
-    set mouse=
-" }}}
+" Not sure what this does
+" set viminfo+=n~/.vim/viminfo
 
-" SPACES, TABS, AND INDENTATION {{{
-    set expandtab               " Use spaces instead of tabs
-    set tabstop=4               " Tabs count for 4 columns
-    set softtabstop=4           " Tabs count for 4 spaces when backspacing
-    set shiftwidth=4            " Shifts use 4 spaces
-" }}}
+" Doesn't turn long wrapped lines into @s
+set display=lastline
+" Switch from unsaved buffers
+set hidden
+" Highlight previous search
+set hlsearch
 
-" FOLDING {{{
-    set foldmethod=indent       " Fold based on indentation
-    set foldlevelstart=10       " Auto-fold after 10 indent levels
-    set foldnestmax=10          " Nest at most 10 folds
-" }}}
+" Enable syntax highlighting
+syntax on
+" Turn off the stupid preview window
+set completeopt-=preview
 
-" SEARCH {{{
-    set ignorecase  " Searches ignore case
-    set smartcase   " Searches case-sensitive if they contain uppercase chars
-" }}}
+" tpope-esque statusline
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 
-" UTILS {{{
-    " Strip trailing whitespace in current buffer
-    function! StripTrailingWhitespace()
-        let save_cursor = getpos(".")
-        let old_query = getreg('/')
-        :%s/\s\+$//e
-        call setpos('.', save_cursor)
-        call setreg('/', old_query)
-    endfunction
-    noremap <leader>sw :call StripTrailingWhitespace()<CR>
-" }}}
+" Make netrw look like NerdTREE
+let g:netrw_liststyle=3
+let g:netrw_banner=0
