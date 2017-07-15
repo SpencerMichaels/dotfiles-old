@@ -34,5 +34,4 @@ configuration and anything else sensitive, and is not in this repository.
 
 ## Credits
 ZSH sourcing methods based on those in [holman/dotfiles](https://github.com/holman/dotfiles).
-Much of my current tmux, vim, and zsh configs are based on / copied from) those
-of Justin Moore.
+Much of my current tmux, vim, and zsh configs are based on those of [Justin Moore](https://github.com/jm00re).

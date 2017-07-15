@@ -1,5 +1,8 @@
+# Use Homebrew zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+
 # TODO: Should I provide an option to auto-install if ~/.zplug is not found?
-if source ~/.zplug/init.zsh; then
+if source $ZPLUG_HOME/init.zsh; then
     zplug "plugins/autojump", from:oh-my-zsh
     zplug "plugins/last-working-dir", from:oh-my-zsh
     zplug "tmuxinator/tmuxinator", use:"completion/tmuxinator.zsh"

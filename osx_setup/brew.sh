@@ -3,18 +3,6 @@
 
 set -e
 
-# Ensure paths are setup first
-source paths.sh
-
-# Check if Homebrew exists
-if [ ! $(which brew) ] && [ "$(uname)" = "Darwin" ]
-then
-echo "- Installing Homebrew."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-    echo '- Homebrew is already installed, continuing to package installation.'
-fi
-
 # Packages/repos to install/tap
 BREW_TAPS=(
     caskroom/fonts      # For Hack font
@@ -25,12 +13,16 @@ BREW_PACKAGES=(
     autojump
     ctags
     duti
-    grc
+	exa
+	fzf
+    # grc
     mpc
     "mpd --with-flac --with-libmms"
     "ncmpcpp --with-clock --with-visualizer"
-    "neovim/neovim/neovim"
+	neovim
     reattach-to-user-namespace
+	ripgrep
+	# ruby # TODO: For tmuxinator
     stow
     tmux
     wget
@@ -38,15 +30,23 @@ BREW_PACKAGES=(
 )
 CASK_PACKAGES=(
     alfred
-    firefox
     font-hack
     iterm2
-    karabiner
+    karabiner-elements
     mactex
-    seil
     spectacle
     the-unarchiver
 )
+
+echo "### INSTALL HOMEBREW PACKAGES ###"
+
+# Install Homebrew if it doesn't already exist
+if [ "$(uname)" = "Darwin" ] && [ ! $(which brew) ]; then
+	echo "- Installing Homebrew."
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    echo '- Homebrew is already installed, continuing to package installation...'
+fi
 
 echo "- Tapping repositories."
 for ((i = 0; i < ${#BREW_TAPS[@]}; i++)); do
@@ -71,5 +71,7 @@ brew linkapps
 
 echo "- Cleaning up."
 brew cleanup
+
+echo
 
 exit 0

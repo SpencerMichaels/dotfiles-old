@@ -1195,7 +1195,7 @@
 	<key>HighlightTabLabels</key>
 	<false/>
 	<key>HotKeyBookmark</key>
-	<string>B0711FCE-8428-4853-949D-925325E2E7D9</string>
+	<string>D8E8C173-E598-40BC-9647-50C41ADD0D12</string>
 	<key>HotKeyTogglesWindow</key>
 	<true/>
 	<key>Hotkey</key>
@@ -1261,7 +1261,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1169 110 445 379 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>523 260 796 473 0 0 1680 1027 </string>
+	<string>523 268 937 465 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 519 836 508 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_B59B86E7-8C3A-4714-B9C9-A9B09758CD86</key>
