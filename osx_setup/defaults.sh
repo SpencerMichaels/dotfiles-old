@@ -19,8 +19,8 @@ echo "  - Don't warn when emptying the trash."
 defaults write com.apple.Finder WarnOnEmptyTrash -bool false
 echo "  - Don't warn when changing file extensions."
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-echo "  - Don't show desktop icons"
-defaults write com.apple.finder CreateDesktop -bool false
+#echo "  - Don't show desktop icons"
+#defaults write com.apple.finder CreateDesktop -bool false
 echo "  - Show icons for external hard drives, servers, and removable media."
 #defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
