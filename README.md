@@ -33,5 +33,6 @@ repository [include]s a ~/.gitprivate file. This should contain git's [user]
 configuration and anything else sensitive, and is not in this repository.
 
 ## Credits
-ZSH sourcing methods based on those in [holman/dotfiles](https://github.com/holman/dotfiles).
-Much of my current tmux, vim, and zsh configs are based on those of [Justin Moore](https://github.com/jm00re).
+* ZSH dynamic sourcing methods from [Zach Holman](https://github.com/holman/dotfiles).
+* tmux, vim, and zsh configs from [Justin Moore](https://github.com/jm00re/dotfiles).
+* OS X defaults from [lxcode](https://github.com/lxcode/dotfiles/blob/master/fix_osx.sh).
