@@ -3,12 +3,12 @@
 # installed.
 set -e
 
+echo "### CONFIGURE APPS ###"
+
 if [ -z "$DOTFILES_ROOT_DIR" ]; then
 	echo "Error: \$DOTFILES_ROOT_DIR is not set."
 	exit 1
 fi
-
-echo "### CONFIGURE APPS ###"
 
 echo "- Set default filetype associations"
 duti resources/file_associations.duti

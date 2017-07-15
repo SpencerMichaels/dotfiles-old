@@ -6,7 +6,7 @@ set -e
 echo "### OS X SETUP ###"
 
 # From https://gist.github.com/brandonb927/3195465
-echo -n "Enter your password: "
+echo "Enter your password."
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo

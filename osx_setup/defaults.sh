@@ -54,7 +54,7 @@ echo "  - Auto-hide (quickly)."
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-time-modifier -float 0.17
 echo "  - Increase the autohide delay."
-defaults write com.apple.dock autohide-delay -int 2
+defaults write com.apple.dock autohide-delay -float 0.25
 echo "  - Disable the dashboard."
 defaults write com.apple.dock "dashboard-in-overlay" -bool true
 echo "  - Pin to the left."

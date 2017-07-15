@@ -8,13 +8,11 @@ else
     exit 1
 fi
 
+echo "- Installing zplug."
+brew install zplug
+
 echo "- Installing zsh plugins."
-if command -v zplug; then
-	zplug install
-else
-    echo "  - zplug not found!"
-    exit 1
-fi
+/usr/local/bin/zsh -c "source /usr/local/opt/zplug/init.zsh && zplug install"
 
 echo
 

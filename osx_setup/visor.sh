@@ -3,12 +3,17 @@
 
 set -e
 
+echo "### ITERM2 VISOR ###"
+
+if [ -z "$DOTFILES_ROOT_DIR" ]; then
+	echo "Error: \$DOTFILES_ROOT_DIR is not set."
+	exit 1
+fi
+
 BID="com.googlecode.iterm2"
 
 ITERM="$(mdfind kMDItemCFBundleIdentifier = "$BID")"
 VISOR="$HOME/Applications/iTermVisor.app"
-
-echo "### ITERM2 VISOR ###"
 
 if [ -d "$VISOR" ]; then
     echo '- Found older version, deleting.'
