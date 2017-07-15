@@ -48,7 +48,7 @@ echo "5. Set app defaults."
 /bin/bash apps.sh
 
 echo "6. Set up Neovim."
-/bin/bash vim.sh
+/bin/bash nvim.sh
 
 echo "### DONE ###"
 

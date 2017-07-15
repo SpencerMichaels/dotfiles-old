@@ -1,7 +1,8 @@
 .DS_Store
 ncmpcpp/.ncmpcpp/error.log
 ncmpcpp/.ncmpcpp/lyrics/
-nvim/.config/nvim/plugged
+nvim/.config/nvim/autoload/
+nvim/.config/nvim/plugged/
 nvim/.config/nvim/.netrwhist
 osx/.config/karabiner/assets/
 zsh/.zsh/cache
