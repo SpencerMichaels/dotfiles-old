@@ -1,6 +1,6 @@
 echo "### ZSH ###"
 
-echo "- Changing shell to zsh (needs root password)."
+echo "- Change shell to zsh (needs root password)."
 if [ -f /usr/local/bin/zsh ]; then
     sudo chsh -s /usr/local/bin/zsh `whoami`
 else
@@ -8,13 +8,13 @@ else
     exit 1
 fi
 
-echo "- Installing zplug."
+echo "- Installzplug."
 brew install zplug
 
-echo "- Installing zsh plugins."
-/usr/local/bin/zsh -c "source /usr/local/opt/zplug/init.zsh && zplug install"
+#echo "- Installing zsh plugins."
+#/usr/local/bin/zsh -c "source /usr/local/opt/zplug/init.zsh && zplug install"
 
-echo "- Creating cache directory"
+echo "- Create cache directory."
 mkdir -p ~/.zsh/cache
 
 echo
