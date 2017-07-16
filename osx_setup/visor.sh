@@ -5,6 +5,8 @@ set -e
 
 echo "### ITERM2 VISOR ###"
 
+source paths.sh
+
 if [ -z "$DOTFILES_ROOT_DIR" ]; then
 	echo "Error: \$DOTFILES_ROOT_DIR is not set."
 	exit 1

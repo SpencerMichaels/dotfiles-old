@@ -63,7 +63,7 @@ sticker_file			"~/.mpd/sticker.sql"
 # initialization. This setting is disabled by default and MPD is run as the
 # current user.
 #
-user				"spencer"
+user				"smichaels"
 #
 # This setting specifies the group that MPD will run as. If not specified
 # primary group of user specified with "user" setting will be used (if set).

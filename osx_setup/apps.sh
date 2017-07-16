@@ -5,6 +5,8 @@ set -e
 
 echo "### CONFIGURE APPS ###"
 
+source paths.sh
+
 if [ -z "$DOTFILES_ROOT_DIR" ]; then
 	echo "Error: \$DOTFILES_ROOT_DIR is not set."
 	exit 1
@@ -18,7 +20,8 @@ defaults write com.googlecode.iterm2 PrefsCustomFolder "${DOTFILES_ROOT_DIR}/osx
 
 # TODO: Possible with absolute paths, not assuming dir?
 echo "- Link Spectacle config"
-ln -s ~/.dotfiles/.config/spectacle/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
+mkdir -p ~/Library/Application\ Support/Spectacle
+ln -s ~/.dotfiles/osx/.config/spectacle/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
 
 echo "- Create directories for MPD."
 mkdir "$HOME/.mpd"

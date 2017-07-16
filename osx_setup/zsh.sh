@@ -14,6 +14,9 @@ brew install zplug
 echo "- Installing zsh plugins."
 /usr/local/bin/zsh -c "source /usr/local/opt/zplug/init.zsh && zplug install"
 
+echo "- Creating cache directory"
+mkdir -p ~/.zsh/cache
+
 echo
 
 exit 0

@@ -1,7 +1,7 @@
 {
     "global": {
         "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
+        "show_in_menu_bar": false,
         "show_profile_name_in_menu_bar": false
     },
     "profiles": [
@@ -57,14 +57,14 @@
                                 "to_if_alone": [
                                     {
                                         "key_code": "9",
-										"modifiers": [
-											"left_shift"
-										]
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
                             },
-							{
+                            {
                                 "from": {
                                     "key_code": "right_shift",
                                     "modifiers": {
@@ -81,9 +81,9 @@
                                 "to_if_alone": [
                                     {
                                         "key_code": "0",
-										"modifiers": [
-											"right_shift"
-										]
+                                        "modifiers": [
+                                            "right_shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"

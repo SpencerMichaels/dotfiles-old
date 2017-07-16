@@ -5,6 +5,8 @@ set -e
 
 echo "### OS X SETUP ###"
 
+source paths.sh
+
 # From https://gist.github.com/brandonb927/3195465
 echo "Enter your password."
 sudo -v
@@ -33,22 +35,22 @@ echo "### BEGIN AUTOCONFIG ###"
 echo
 
 echo "1. Set up Homebrew."
-/bin/bash brew.sh
+/bin/bash $DOTFILES_ROOT_DIR/osx_setup/brew.sh
 
 echo "2. Set up zsh."
-/bin/bash zsh.sh
+/bin/bash $DOTFILES_ROOT_DIR/osx_setup/zsh.sh
 
 echo "3. Link dotfiles."
-/bin/bash link.sh
+/bin/bash $DOTFILES_ROOT_DIR/osx_setup/link.sh
 
 echo "4. Set sane OS X defaults."
-/bin/bash defaults.sh
+/bin/bash $DOTFILES_ROOT_DIR/osx_setup/defaults.sh
 
 echo "5. Set app defaults."
-/bin/bash apps.sh
+/bin/bash $DOTFILES_ROOT_DIR/osx_setup/apps.sh
 
 echo "6. Set up Neovim."
-/bin/bash nvim.sh
+/bin/bash $DOTFILES_ROOT_DIR/osx_setup/nvim.sh
 
 echo "### DONE ###"
 

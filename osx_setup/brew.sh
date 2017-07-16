@@ -9,20 +9,21 @@ BREW_TAPS=(
     caskroom/versions   # For iterm2-beta and other such alternate app versions
 )
 BREW_PACKAGES=(
-    ack
     autojump
     ctags
     duti
-	exa
-	fzf
+    exa
+    fzf
     # grc
     mpc
     "mpd --with-flac --with-libmms"
     "ncmpcpp --with-clock --with-visualizer"
-	neovim
+    neovim
+    python
+    python3
     reattach-to-user-namespace
-	ripgrep
-	# ruby # TODO: For tmuxinator
+    ruby # TODO: For tmuxinator
+    ripgrep
     stow
     tmux
     wget
@@ -31,6 +32,7 @@ BREW_PACKAGES=(
 CASK_PACKAGES=(
     alfred
     font-hack
+	google-chrome
     iterm2
     karabiner-elements
     mactex

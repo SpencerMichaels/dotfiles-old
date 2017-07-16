@@ -76,7 +76,7 @@ defaults write NSGlobalDomain NSWindowResizeTime .1
 echo "  - Disable press-and-hold."
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 echo "  - Set key repeat speed to maximum."
-defaults write NSGlobalDomain KeyRepeat -float 0.001
+defaults write NSGlobalDomain KeyRepeat -int 1
 echo "  - Disable spell check."
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 echo "  - Disable shake to locate cursor."

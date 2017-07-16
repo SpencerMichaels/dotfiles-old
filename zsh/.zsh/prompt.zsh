@@ -1,7 +1,6 @@
 # Justin's prompt. TODO: Figure out what this displays!
-PS1="$fg[red]%}[%*]%{$fg[red]%}[%n@%{$fg[red]%}%m]%{$fg[red]%}[%~]
-%{$fg[red]%}›%{$fg[red]%}›%{$fg[red]%}›%{$reset_color%} "
-
+PS1="$fg[green]%}[%*]%{$fg[green]%}[%n@%{$fg[green]%}%m]%{$fg[green]%}[%~]
+%{$fg[green]%}›%{$fg[green]%}›%{$fg[green]%}›%{$reset_color%} "
 
 # Show the correct editor mode on the right hand side of the prompt
 function zle-line-init zle-keymap-select {
