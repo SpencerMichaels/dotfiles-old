@@ -35,6 +35,9 @@ PLIST="$VISOR/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Set :CFBundleName iTerm2Visor" "$PLIST"
 #/usr/libexec/PlistBuddy -c "Add :LSUIElement string 1" "$PLIST"
 
+echo '- Re-signing app.'
+codesign -f -s - "$VISOR"
+
 echo '- Setting defaults.'
 defaults write com.googlecode.iterm2visor PrefsCustomFolder \
     "${DOTFILES_ROOT_DIR}/osx/iterm2"
