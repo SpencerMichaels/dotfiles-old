@@ -11,7 +11,7 @@ $fg[white]─\
 $fg[cyan]%}┤%*├\
 $fg[white]─\
 %{$fg[yellow]%}┤%~├╼
-%{$fg[blue]%}└╼%{$reset_color%}"
+%{$fg[blue]%}└╼%{$reset_color%} "
 
 # Show the correct editor mode on the right hand side of the prompt
 function zle-line-init zle-keymap-select {
