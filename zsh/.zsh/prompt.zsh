@@ -1,11 +1,22 @@
-# Justin's prompt. TODO: Figure out what this displays!
-PS1="$fg[green]%}[%*]%{$fg[green]%}[%n@%{$fg[green]%}%m]%{$fg[green]%}[%~]
-%{$fg[green]%}›%{$fg[green]%}›%{$fg[green]%}›%{$reset_color%} "
+PROMPT_EXIT_CODE="%(?..\
+%{$fg_bold[red]%}%?%{$reset_color%} )"
+
+PROMPT_ROOT_STATUS="%(!.\
+%{$fg_bold[red]%}#%{$reset_color%} .)"
+
+PROMPT="\
+$fg[blue]┌\
+%{$fg[blue]%}┤%n@%{$fg[blue]%}%m├\
+$fg[white]─\
+$fg[cyan]%}┤%*├\
+$fg[white]─\
+%{$fg[yellow]%}┤%~├╼
+%{$fg[blue]%}└╼%{$reset_color%}"
 
 # Show the correct editor mode on the right hand side of the prompt
 function zle-line-init zle-keymap-select {
     VIM_PROMPT="%{$fg[blue]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+	RPROMPT="$PROMPT_EXIT_CODE$PROMPT_ROOT_STATUS${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
     zle reset-prompt
 }
 
