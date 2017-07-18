@@ -6,6 +6,7 @@ if source $ZPLUG_HOME/init.zsh; then
     zplug "plugins/autojump", from:oh-my-zsh
     zplug "plugins/last-working-dir", from:oh-my-zsh
     zplug "zsh-users/zsh-syntax-highlighting"
+    zplug "lib/git.zsh", from:oh-my-zsh
     #zplug "tmuxinator/tmuxinator", use:"completion/tmuxinator.zsh"
 
 	zplug check || zplug install
