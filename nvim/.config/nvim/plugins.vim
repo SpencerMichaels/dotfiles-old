@@ -25,10 +25,10 @@
     Plug 'rust-lang/rust.vim'
     Plug 'lervag/vimtex'
     Plug 'justinmk/vim-syntax-extra'
-    " Plug 'keith/swift.vim'
+    Plug 'keith/swift.vim'
     " Plug 'tmux-plugins/vim-tmux'
 
-    "Colors
+    " Colors
     Plug 'jnurmine/Zenburn'
     Plug 'morhetz/gruvbox'
 
@@ -62,6 +62,13 @@
     let g:ycm_confirm_extra_conf=0
     " Rust source files
     let g:ycm_rust_src_path=system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src/'
+
+	" Enable latex completion
+	if !exists('g:ycm_semantic_triggers')
+		let g:ycm_semantic_triggers = {}
+	endif
+	let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
 " }}}
 
 " FZF {{{

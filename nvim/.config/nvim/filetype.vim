@@ -1,7 +1,6 @@
 " Text Writing, copped straight from Dr. Bunsen
 func! WordProcessorMode()
-    setlocal formatoptions=1
-    setlocal noexpandtab
+    setlocal expandtab
     setlocal spell spelllang=en_us
     setlocal spell
     setlocal nolist
@@ -9,7 +8,9 @@ func! WordProcessorMode()
     setlocal showbreak=
     set complete+=s
     set formatprg=par
-    set formatoptions+=l
+    set formatoptions+=t
+    set formatoptions-=l
+	set textwidth=79
     syntax spell toplevel
 endfu
 com! WP call WordProcessorMode()
@@ -45,3 +46,6 @@ augroup filetype_js
     autocmd!
     autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 augroup END
+
+" Wrap text to 72 chars in git commit messages
+au FileType gitcommit set tw=72 fo-=l fo+=t

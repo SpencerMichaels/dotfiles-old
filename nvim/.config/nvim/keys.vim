@@ -1,10 +1,6 @@
 " Set leader to ,
 let mapleader = ','
 
-" Enter adds lines in normal mode
-nnoremap <CR> o<Esc>
-cnoremap <CR> <CR>
-
 "j and k move down to the next text on wrapped lines not next line
 map j gj
 map k gk
@@ -23,10 +19,10 @@ map H ^
 nnoremap J :join!<cr>
 map K i<cr><esc>
 
-" Edit .vimrc
-nnoremap <silent> <leader>ev :badd ~/.vimrc<cr>
-" Source .vimrc
-nnoremap <silent> <leader>sv :source ~/.vimrc<cr>
+" Edit neovim config
+nnoremap <silent> <leader>ev :e ~/.config/nvim/init.vim<cr>
+" Source neovim config
+nnoremap <silent> <leader>sv :source ~/.config/nvim/init.vim<cr>
 " Save quickly
 nnoremap <silent> <leader>w :w<cr>
 nnoremap <silent> <leader>wa :wa<cr>
