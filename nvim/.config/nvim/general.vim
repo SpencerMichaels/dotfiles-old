@@ -19,6 +19,7 @@ set noswapfile
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set expandtab
 " Auto indenting
 set autoindent
 set smarttab
@@ -35,7 +36,7 @@ set backspace=indent,eol,start
 " Highlight current line
 set cursorline
 " Don't add a space when joining a line
-set nojoinspaces
+"set nojoinspaces
 " Super fast key response times
 " TODO: This seems to interfere with tmux
 "set ttimeout

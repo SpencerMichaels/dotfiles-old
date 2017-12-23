@@ -124,6 +124,13 @@ defaults write com.apple.menuextra.clock DateFormat "EEE MMM d  h:mm a"
 echo "- Show battery percentage."
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
+echo "- Disable auto-correct."
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+echo "- Disable auto capitalize."
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+echo "- Disable auto period insert."
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
 echo "- Link the airport binary."
 sudo mkdir -p /usr/local/bin
 sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
@@ -148,5 +155,8 @@ sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Curre
 
 # Uncomment for dark mode
 # sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
+
+# Disable volume/brightness overlays
+launchctl unload -wF /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist
 
 echo

@@ -13,3 +13,5 @@
     path = ~/.gitprivate
 [mergetool]
 	keepBackup = false
+[pull]
+	rebase = true

@@ -29,9 +29,10 @@ ZSH_THEME_GIT_PROMPT_RENAMED="↺"
 ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_STASHED="" # TODO
 ZSH_THEME_GIT_PROMPT_UNMERGED="" # TODO
-ZSH_THEME_GIT_PROMPT_AHEAD="↑"
-ZSH_THEME_GIT_PROMPT_BEHIND="↓"
-ZSH_THEME_GIT_PROMPT_DIVERGED="⇅"
+ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="↑"
+ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="↓"
+ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="⇅"
+ZSH_THEME_GIT_PROMPT_EQUAL_REMOTE="="
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 function prompt_dynamic_section {
@@ -51,22 +52,28 @@ function prompt_dynamic_section {
 	echo "$dprompt$ENDR"
 }
 
-# Show the correct editor mode on the right hand side of the prompt
-function zle-line-init zle-keymap-select {
+function set_prompt {
     VIM_PROMPT="%{$fg_bold[blue]%}NORMAL%{$reset_color%} "
 
+    # Can also use %(4~|.../%3~|%~) or %(5~|%-1~/…/%3~|%4~)
+    ((PATH_LEN = `tput cols` - 40))
 	PROMPT="\
 %{$fg[blue]%}┌\
 $(boxify "%n@%m" blue)\
 ─\
-$(boxify "%~" yellow)\
+$(boxify "%${PATH_LEN}<..<%~%<<" yellow)\
 $(prompt_dynamic_section)
 %{$fg[blue]%}└╼%{$reset_color%} "
 
 	RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$PROMPT_EXIT_CODE$PROMPT_ROOT_STATUS"
-
-    zle reset-prompt
 }
+
+# Show the correct editor mode on the right hand side of the prompt
+function zle-line-init zle-keymap-select {
+	set_prompt
+    #zle reset-prompt
+}
+set_prompt
 
 zle -N zle-line-init
 zle -N zle-keymap-select

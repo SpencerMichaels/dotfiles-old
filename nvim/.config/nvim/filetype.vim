@@ -1,13 +1,12 @@
 " Text Writing, copped straight from Dr. Bunsen
 func! WordProcessorMode()
-    setlocal expandtab
-    setlocal spell spelllang=en_us
+    setlocal spell spelllang=en_us,cjk
     setlocal spell
     setlocal nolist
     setlocal linebreak
     setlocal showbreak=
     set complete+=s
-    set formatprg=par
+    set formatprg="par p0s0"
     set formatoptions+=t
     set formatoptions-=l
 	set textwidth=79
@@ -45,6 +44,11 @@ augroup END
 augroup filetype_js
     autocmd!
     autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+augroup END
+
+augroup filetype_ruby
+    autocmd!
+    autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 augroup END
 
 " Wrap text to 72 chars in git commit messages

@@ -4,6 +4,7 @@
 
     call plug#begin('~/.config/nvim/plugged')
 
+    Plug 'majutsushi/tagbar'
     Plug 'easymotion/vim-easymotion'
 
     Plug 'tpope/vim-fugitive'
@@ -17,9 +18,14 @@
     Plug 'triglav/vim-visual-increment'
     Plug 'vim-scripts/bufkill.vim'
     Plug 'ap/vim-buftabline'
-    Plug 'kien/rainbow_parentheses.vim'
     Plug 'junegunn/fzf.vim'
-    Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --racer-completer', 'frozen': 1 }
+    Plug 'Valloric/YouCompleteMe', {
+                \ 'do': 'python3 install.py --clang-completer --racer-completer',
+                \ 'frozen': 1 }
+
+    Plug 'luochen1990/rainbow'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'jceb/vim-orgmode'
 
     " Language-specific
     Plug 'rust-lang/rust.vim'
@@ -27,6 +33,7 @@
     Plug 'justinmk/vim-syntax-extra'
     Plug 'keith/swift.vim'
     " Plug 'tmux-plugins/vim-tmux'
+    Plug 'junegunn/vim-easy-align'
 
     " Colors
     Plug 'jnurmine/Zenburn'
@@ -38,8 +45,6 @@
 " }}}
 
 " LATEX {{{
-    " Check spelling with US English and CJK dictionaries
-    autocmd FileType tex setlocal spell spelllang=en_us,cjk
     " Cleanup TeX build files when Vim closes
     autocmd FileType tex :autocmd! VimLeave * :VimtexClean
     " Conceal math characters
@@ -63,11 +68,11 @@
     " Rust source files
     let g:ycm_rust_src_path=system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src/'
 
-	" Enable latex completion
-	if !exists('g:ycm_semantic_triggers')
-		let g:ycm_semantic_triggers = {}
-	endif
-	let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+    " Enable latex completion
+    if !exists('g:ycm_semantic_triggers')
+        let g:ycm_semantic_triggers = {}
+    endif
+    let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 " }}}
 
@@ -89,30 +94,35 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 " }}}
 
-" RAINBOW PARENTHESES {{{
-	" TODO: Fix this
-	" let g:rbpt_colorpairs = [
-	"     \ ['brown',       'RoyalBlue3'],
-	"     \ ['Darkblue',    'SeaGreen3'],
-	"     \ ['darkgray',    'DarkOrchid3'],
-	"     \ ['darkgreen',   'firebrick3'],
-	"     \ ['darkcyan',    'RoyalBlue3'],
-	"     \ ['darkred',     'SeaGreen3'],
-	"     \ ['darkmagenta', 'DarkOrchid3'],
-	"     \ ['brown',       'firebrick3'],
-	"     \ ['gray',        'RoyalBlue3'],
-	"     \ ['darkmagenta', 'DarkOrchid3'],
-	"     \ ['Darkblue',    'firebrick3'],
-	"     \ ['darkgreen',   'RoyalBlue3'],
-	"     \ ['darkcyan',    'SeaGreen3'],
-	"     \ ['darkred',     'DarkOrchid3'],
-	"     \ ['red',         'firebrick3'],
-	"     \ ]
+" RAINBOW {{{
+    let g:rainbow_active = 1
 
-	augroup rainbow
-		au VimEnter * RainbowParenthesesToggle
-		au Syntax * RainbowParenthesesLoadRound
-		au Syntax * RainbowParenthesesLoadSquare
-		au Syntax * RainbowParenthesesLoadBraces
-	augroup END
+    let g:rainbow_conf = {
+    \   'guifgs': ['gold3', 'darkorange3', 'seagreen3', 'firebrick'],
+    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+    \   'operators': '_,_',
+    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold',
+    \                   'start=/{/ end=/}/ fold'],
+    \   'separately': {
+    \       '*': {},
+    \       'tex': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+    \       },
+    \       'lisp': {
+    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3',
+    \                       'firebrick', 'darkorchid3'],
+    \       },
+    \       'vim': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/',
+    \                           'start=/{/ end=/}/ fold', 
+    \                           'start=/(/ end=/)/ containedin=vimFuncBody',
+    \                           'start=/\[/ end=/\]/ containedin=vimFuncBody',
+    \                           'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+    \       },
+    \       'html': {
+    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+    \       },
+    \       'css': 0,
+    \   }
+    \}
 " }}}

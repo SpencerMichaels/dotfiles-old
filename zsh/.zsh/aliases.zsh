@@ -4,6 +4,23 @@ function mkcd
     mkdir -p "$dir" && cd "$dir"
 }
 
+function alf
+{
+	local search_str=$1
+	if [ -z $2 ]; then
+		local num_results=20
+	else
+		local num_results=$2
+    fi
+
+	mdfind -onlyin ~ -name "$1" | rg -v "$HOME/Library" | head -"$num_results"
+}
+function sel {
+    rg -n $@ | afv
+}
+
+# Alred-like searching
+
 alias beep='afplay /System/Library/Sounds/Ping.aiff'
 alias cask='brew cask'
 alias cls='clear; ls'
@@ -25,7 +42,9 @@ alias pp_xml="xmllint --format -"
 
 # Enable modern node.js features
 alias node="node --harmony"
-alias le="exa"
+
+# Use exa for ls by default
+alias ls="exa"
 
 # TODO: What does this do?
 # alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
@@ -33,3 +52,6 @@ alias le="exa"
 # These are custom vim mode key bindings
 bindkey -M vicmd 'H' vi-beginning-of-line
 bindkey -M vicmd 'L' vi-end-of-line
+
+# ...yes, this is a thing that I did
+alias seanify="sed -E -e 's/(ti|si)on|( |^)on/\2sean/g'"

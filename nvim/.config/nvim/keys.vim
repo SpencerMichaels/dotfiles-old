@@ -158,3 +158,13 @@ nnoremap <silent> <space>T :BTags<CR>
 
 nnoremap <silent> <space>/ :execute 'Ag ' . input('Ag: ')<CR>
 nnoremap <silent> <space>* :execute 'Ag ' . expand('<cword>')<CR>
+
+" See https://github.com/junegunn/vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" Toggle tagbar
+nnoremap <silent> <leader>t :TagbarToggle<cr>
+nnoremap <silent> <leader>sd :YcmShowDetailedDiagnostic<cr>
