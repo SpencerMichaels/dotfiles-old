@@ -43,8 +43,8 @@ alias pp_xml="xmllint --format -"
 # Enable modern node.js features
 alias node="node --harmony"
 
-# Use exa for ls by default
-alias ls="exa"
+alias l="exa"
+alias cl='clear; exa'
 
 # TODO: What does this do?
 # alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
@@ -55,3 +55,5 @@ bindkey -M vicmd 'L' vi-end-of-line
 
 # ...yes, this is a thing that I did
 alias seanify="sed -E -e 's/(ti|si)on|( |^)on/\2sean/g'"
+
+alias rf="rg --files"

@@ -32,8 +32,17 @@
     Plug 'lervag/vimtex'
     Plug 'justinmk/vim-syntax-extra'
     Plug 'keith/swift.vim'
-    " Plug 'tmux-plugins/vim-tmux'
+
+    Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+    "Plug 'enomsg/vim-haskellConcealPlus', { 'for': 'haskell' }
+    "Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+    "Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+    "Plug 'Tinside/vim-hoogle', { 'for': 'haskell' }
+    "Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
+
     Plug 'junegunn/vim-easy-align'
+
+    Plug 'tikhomirov/vim-glsl'
 
     " Colors
     Plug 'jnurmine/Zenburn'

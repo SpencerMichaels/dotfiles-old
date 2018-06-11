@@ -86,9 +86,6 @@ vnoremap <silent> <leader>3 :s/^/\###\ / <cr>
 
 " Make ordered lists
 command! -nargs=0 -range=% Number <line1>,<line2>s/^\s*\zs/\=(line('.') - <line1>+1).'. '
-vnoremap <silent> <leader>l :s/^/\+\ <cr>
-nnoremap <silent> <leader>l I+ <esc>
-vnoremap <silent> <leader>o :Number<cr>
 
 " Retain selection when indenting lines
 vnoremap <silent> < <gv
