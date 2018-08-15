@@ -53,7 +53,7 @@ function prompt_dynamic_section {
 }
 
 function set_prompt {
-    VIM_PROMPT="%{$fg_bold[blue]%}NORMAL%{$reset_color%} "
+    #VIM_PROMPT="%{$fg_bold[blue]%}NORMAL%{$reset_color%} "
 
     # Can also use %(4~|.../%3~|%~) or %(5~|%-1~/…/%3~|%4~)
     ((PATH_LEN = `tput cols` - 40))
@@ -65,14 +65,37 @@ $(boxify "%${PATH_LEN}<..<%~%<<" yellow)\
 $(prompt_dynamic_section)
 %{$fg[blue]%}└╼%{$reset_color%} "
 
-	RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$PROMPT_EXIT_CODE$PROMPT_ROOT_STATUS"
+	#RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$PROMPT_EXIT_CODE$PROMPT_ROOT_STATUS"
+	RPROMPT="$PROMPT_EXIT_CODE$PROMPT_ROOT_STATUS"
 }
 
 # Show the correct editor mode on the right hand side of the prompt
-function zle-line-init zle-keymap-select {
-	set_prompt
-    #zle reset-prompt
+function zle-line-init {
+    zle -K viins
+    echo -ne "\033]12;White\007"
+    echo -ne "\033[4 q"
 }
+
+function zle-keymap-select {
+    if [[ $KEYMAP == vicmd ]]; then
+        if [[ -z $TMUX ]]; then
+            printf "\033]12;White\007"
+            printf "\033[2 q"
+        else
+            printf "\033Ptmux;\033\033]12;White\007\033\\"
+            printf "\033Ptmux;\033\033[2 q\033\\"
+        fi
+    else
+        if [[ -z $TMUX ]]; then
+            printf "\033]12;White\007"
+            printf "\033[4 q"
+        else
+            printf "\033Ptmux;\033\033]12;rhite\007\033\\"
+            printf "\033Ptmux;\033\033[4 q\033\\"
+        fi
+    fi
+}
+
 set_prompt
 
 zle -N zle-line-init

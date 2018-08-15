@@ -57,3 +57,4 @@ bindkey -M vicmd 'L' vi-end-of-line
 alias seanify="sed -E -e 's/(ti|si)on|( |^)on/\2sean/g'"
 
 alias rf="rg --files"
+alias clip=pbcopy
