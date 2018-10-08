@@ -16,9 +16,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 " Smart tab defaults
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 " Auto indenting
 set autoindent

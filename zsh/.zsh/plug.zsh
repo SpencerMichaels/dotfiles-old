@@ -9,7 +9,7 @@ if source $ZPLUG_HOME/init.zsh; then
     zplug "lib/git.zsh", from:oh-my-zsh
     #zplug "tmuxinator/tmuxinator", use:"completion/tmuxinator.zsh"
 
-	zplug check || zplug install
+    zplug check || zplug install
 
     zplug load
 fi
