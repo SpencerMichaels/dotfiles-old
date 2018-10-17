@@ -1,7 +1,8 @@
 " Set color scheme
-colorscheme gruvbox
+colorscheme material
 set background=dark
 set termguicolors
+let g:material_theme_style='dark'
 
 " Buftabline colors
 hi BufTabLineActive ctermfg=DarkGreen ctermbg=Black
@@ -24,7 +25,7 @@ set expandtab
 set autoindent
 set smarttab
 " yank / paste to OS clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 " mouse
 set mouse=a
 " Case insensitive searching

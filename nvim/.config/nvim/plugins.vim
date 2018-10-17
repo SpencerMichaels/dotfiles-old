@@ -47,6 +47,8 @@
     " Colors
     Plug 'jnurmine/Zenburn'
     Plug 'morhetz/gruvbox'
+    Plug 'joshdick/onedark.vim'
+    Plug 'kaicataldo/material.vim'
 
     call plug#end()
 
@@ -74,8 +76,9 @@
     let g:ycm_autoclose_preview_window_after_insertion=1
     " Don't ask for confirmation to load .ycm_extra_conf.py
     let g:ycm_confirm_extra_conf=0
+    let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
     " Rust source files
-    let g:ycm_rust_src_path=system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src/'
+    "let g:ycm_rust_src_path=system('rustc --print sysroot')[:-2] . '/lib/rustlib/src/rust/src/'
 
     " Enable latex completion
     if !exists('g:ycm_semantic_triggers')
