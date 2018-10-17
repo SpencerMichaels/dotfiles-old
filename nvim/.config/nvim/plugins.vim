@@ -55,6 +55,10 @@
     filetype plugin indent on
 " }}}
 
+" AUTO-PAIRS {{{
+let g:AutoPairsMultilineClose = 0
+" }}}
+
 " LATEX {{{
     " Cleanup TeX build files when Vim closes
     autocmd FileType tex :autocmd! VimLeave * :VimtexClean
@@ -73,6 +77,7 @@
 
 " YOUCOMPLETEME {{{
     " Autoclose the function preview window after choosing a completion option
+    let g:ycm_max_diagnostics_to_display=0
     let g:ycm_autoclose_preview_window_after_insertion=1
     " Don't ask for confirmation to load .ycm_extra_conf.py
     let g:ycm_confirm_extra_conf=0
